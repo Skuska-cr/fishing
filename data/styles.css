@@ -323,5 +323,12 @@ td {
 
 @media only screen and (max-width: 800px) {
 
-    
+    nav{
+        max-width: 800px;
+        left: 0;
+
+    }
+    .divsection{
+        max-width: 25vw;
+    }
   }
