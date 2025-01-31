@@ -1,6 +1,6 @@
 
 *{
-    font-family: "Georgia", serif;
+    font-family: 'Source Sans Pro', sans-serif;
     
 }
 
@@ -9,25 +9,26 @@ body{
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(253, 253, 253, 0.247);
+    background-color: rgb(255, 255, 255);
 }
 
 h1{
     font-weight: 1200;
     font-size: 35px;
-    color: rgb(1, 122, 122);
+    color: rgb(1, 73, 73);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.925);
 }
 
 
 h2{
     font-weight: 1200;
     font-size: 30px;
-    color: rgb(1, 122, 122);
+    color: rgb(1, 73, 73)
 }
 .navdiv{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: self-end;
     justify-content: space-between;
     padding: 0px 15px;
     width: 100%;
@@ -44,18 +45,17 @@ nav{
     top: 0;
     background-color: white;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(0, 0, 0, 0.2);
+    max-height: 120px;
 }
 
-nav h1{
+nav h3{
     font-weight: 1200;
-    font-size: 35px;
-    color: rgb(1, 122, 122);
+    font-size: 20px;
+    color: rgb(1, 73, 73);
     width: 100%;
     margin: 0 auto; /* Centers it properly */
     padding-left: 10%;
-    padding-top: 10px;
-
-
+    padding-top: 15px;
  }
 
 
@@ -94,7 +94,7 @@ nav h1{
 }
 
 .divsection p{
-    font-size: 20px;
+    font-size: 15px;
     width: 50%;
     justify-content: center;
     display: flex;
@@ -127,11 +127,10 @@ nav h1{
 
 .logonavbarbox{
     z-index: 200;
-    background-color: rgba(184, 184, 184, 0.233);
-    min-width: 100px; 
-    min-height: 100px;
-    max-width: 100px;
-    max-height: 100px;
+    min-width: 50px; 
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,8 +138,8 @@ nav h1{
     margin: 0px 0px;
     padding: 0px;
     border: 3px solid black;
-    transition: transform 0.3s ease;
     position: relative;
+    background-color: rgb(255, 255, 255);
    
 }
 .moved1 {
@@ -266,22 +265,22 @@ main{
 }
 
 .content{
-    text-align: center;
+    
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    width: 76%;
+    width: 70%;
     margin-left: 2%;
-    padding: 15px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
+    padding:  15px;
+    border-left: 1px solid rgba(128, 128, 128, 0.603);
+    margin-left: 20%;
+    padding-left: 20%;
+    padding-right: 20%;
 }
 
 
 
 .font{
-    font-size: x-large;
+    font-size: large;
 }
 
 .fontT{
@@ -360,21 +359,26 @@ td {
     .table{
         display: none;
     }
+    .content{
+        width: 100%;
+        margin: 0;
+        padding: 25px;
+    }
   }
 
   .hamburger {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 50px;
-    height: 25px;
+    width: 35px;
+    height: 15px;
     cursor: pointer;
     display: none;
 }
 
 .bar {
     width: 100%;
-    height: 4px;
-    background-color: rgb(7, 201, 226);
+    height: 3px;
+    background-color: rgb(236, 236, 236);
     transition: 0.3s;
 }
