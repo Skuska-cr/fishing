@@ -345,7 +345,12 @@ td {
     }
     .divsection{
         max-width: 25vw;
+        background-color: rgb(31, 31, 31);
+        border-radius: 25px;
+        justify-content: left;
+        min-width: 70%;
     }
+
     main{
         max-width: 100%;
         min-width: 100%;
