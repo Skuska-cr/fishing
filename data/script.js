@@ -66,6 +66,7 @@ window.addEventListener("load", function () {
     document.querySelector("main").style.marginTop = navbarHeight + "px";
 });
 
+
 function small(){
     var navbar = document.querySelector("nav");
     var text = this.document.querySelectorAll(".divsection p")
@@ -73,42 +74,52 @@ function small(){
     let logo = this.document.querySelector(".logonavbarbox");
     let navlogo = this.document.querySelector(".logonavbar");
     var divsection = this.document.querySelectorAll(".divsection")
+    var hamburger = document.querySelector(".hamburger");
     navbar.classList.remove("returning")
+    logo.classList.remove("logoOriginate");
     navbar.style.paddingTop = "25px"
-    name.innerHTML = ".";
-
+    name.innerHTML = ",";
+    hamburger.style.display = "flex";
     text.forEach(t => {
         t.style.visibility= "hidden"
     })
     navbar.classList.add("scrolled");
     logo.classList.add("logomovement") 
-
+    
     navbar.classList.add("small");
-    navlogo.style.maxWidth = "75px";
-    navlogo.style.maxHeight = "75px";
+    logo.style.maxWidth = "70px";
+    logo.style.maxHeight = "70px";
+    navlogo.style.maxWidth = "60px";
+    navlogo.style.maxHeight = "60px";
+    
     logo.style.backgroundColor = "black"
     divsection.forEach(e => {
         e.style.borderBottom = "0px solid black";
     })
+    
+   
+
 }
 
 
 window.addEventListener("scroll", function () {
+
     var navbar = document.querySelector("nav");
     var text = this.document.querySelectorAll(".divsection p")
     let name = this.document.querySelector(".headding");
     let logo = this.document.querySelector(".logonavbarbox");
     let navlogo = this.document.querySelector(".logonavbar");
+    var hamburger = document.querySelector(".hamburger");
     var divsection = this.document.querySelectorAll(".divsection")
     
     if (window.scrollY > 250) { 
-      
        small();
         
     } else if (w > 1000) {
         divsection.forEach(e => {
             e.style.borderBottom = "3px solid black";
         })
+        hamburger.style.display = "none";
         logo.style.backgroundColor = "rgba(255, 255, 255, 0)";
         navbar.style.paddingTop = "0px"
         navbar.classList.remove("scrolled");
@@ -134,10 +145,11 @@ window.addEventListener("scroll", function () {
         })
         
         navbar.classList.add("returning")
-        
+        logo.classList.add("logoOriginate");
     }
 
 
+    
 
 });
 
