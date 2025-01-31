@@ -151,6 +151,6 @@ function copy(element){
 }
 
 
-if (w < 1000){
-    small()
+if (w < 600){
+    small();
 }
