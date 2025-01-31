@@ -331,4 +331,13 @@ td {
     .divsection{
         max-width: 25vw;
     }
+    main{
+        max-width: 100%;
+        min-width: 100%;
+        padding: 0px;
+        margin: 0px;
+    }
+    .table{
+        display: none;
+    }
   }
