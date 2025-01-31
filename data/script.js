@@ -89,6 +89,8 @@ function small(){
     logo.classList.add("logomovement") 
     
     navbar.classList.add("small");
+    logo.style.minWidth = "80px";
+    logo.style.minHeight = "80px";
     logo.style.maxWidth = "70px";
     logo.style.maxHeight = "70px";
     navlogo.style.maxWidth = "60px";
@@ -126,10 +128,10 @@ window.addEventListener("scroll", function () {
         navbar.classList.remove("scrolled");
         logo.classList.remove("logomovement") 
         navbar.classList.remove("small");
-        logo.style.maxWidth = "100px";
-        logo.style.maxHeight = "100px";
-        logo.style.minWidth = "100px";
-        logo.style.minHeight = "100px";
+        logo.style.maxWidth = "80px";
+        logo.style.maxHeight = "80px";
+        logo.style.minWidth = "80px";
+        logo.style.minHeight = "80px";
         navlogo.style.maxWidth = "120%";
         navlogo.style.maxHeight = "120%";
 
