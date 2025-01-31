@@ -80,6 +80,8 @@ function small(){
     navbar.style.paddingTop = "25px"
     name.innerHTML = ",";
     hamburger.style.display = "flex";
+    hamburger.style.minWidth = "25px"
+    hamburger.style.padding = "25px"
     text.forEach(t => {
         t.style.visibility= "hidden"
     })
@@ -97,8 +99,6 @@ function small(){
         e.style.borderBottom = "0px solid black";
     })
     
-   
-
 }
 
 
@@ -115,7 +115,7 @@ window.addEventListener("scroll", function () {
     if (window.scrollY > 250) { 
        small();
         
-    } else if (w > 1000) {
+    } else if (w > 600) {
         divsection.forEach(e => {
             e.style.borderBottom = "3px solid black";
         })
@@ -163,6 +163,6 @@ function copy(element){
 }
 
 
-if (w < 600){
+if (w <= 600){
     small();
 }
