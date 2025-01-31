@@ -115,9 +115,10 @@ window.addEventListener("scroll", function () {
     if (window.scrollY > 250) { 
        small();
         
-    } else if (w > 600) {
+    } else if (w > 1200) {
         divsection.forEach(e => {
             e.style.borderBottom = "3px solid black";
+           
         })
         hamburger.style.display = "none";
         logo.style.backgroundColor = "rgba(255, 255, 255, 0)";
@@ -163,6 +164,6 @@ function copy(element){
 }
 
 
-if (w <= 600){
+if (w <= 1200){
     small();
 }
