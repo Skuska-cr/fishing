@@ -1,5 +1,5 @@
 var curre = 2
-
+var w = window.innerWidth
 var navBarList = {
     "-2": []
 } 
@@ -66,6 +66,33 @@ window.addEventListener("load", function () {
     document.querySelector("main").style.marginTop = navbarHeight + "px";
 });
 
+function small(){
+    var navbar = document.querySelector("nav");
+    var text = this.document.querySelectorAll(".divsection p")
+    let name = this.document.querySelector(".headding");
+    let logo = this.document.querySelector(".logonavbarbox");
+    let navlogo = this.document.querySelector(".logonavbar");
+    var divsection = this.document.querySelectorAll(".divsection")
+    navbar.classList.remove("returning")
+    navbar.style.paddingTop = "25px"
+    name.innerHTML = ".";
+
+    text.forEach(t => {
+        t.style.visibility= "hidden"
+    })
+    navbar.classList.add("scrolled");
+    logo.classList.add("logomovement") 
+
+    navbar.classList.add("small");
+    navlogo.style.maxWidth = "75px";
+    navlogo.style.maxHeight = "75px";
+    logo.style.backgroundColor = "black"
+    divsection.forEach(e => {
+        e.style.borderBottom = "0px solid black";
+    })
+}
+
+
 window.addEventListener("scroll", function () {
     var navbar = document.querySelector("nav");
     var text = this.document.querySelectorAll(".divsection p")
@@ -76,25 +103,9 @@ window.addEventListener("scroll", function () {
     
     if (window.scrollY > 250) { 
       
-        navbar.classList.remove("returning")
-        navbar.style.paddingTop = "25px"
-        name.innerHTML = ".";
-
-        text.forEach(t => {
-            t.style.visibility= "hidden"
-        })
-        navbar.classList.add("scrolled");
-        logo.classList.add("logomovement") 
-
-        navbar.classList.add("small");
-        navlogo.style.maxWidth = "75px";
-        navlogo.style.maxHeight = "75px";
-        logo.style.backgroundColor = "black"
-        divsection.forEach(e => {
-            e.style.borderBottom = "0px solid black";
-        })
+       small();
         
-    } else {
+    } else if (w > 1000) {
         divsection.forEach(e => {
             e.style.borderBottom = "3px solid black";
         })
@@ -137,4 +148,9 @@ function copy(element){
     }).catch(err => {
         console.error("Failed to copy: ", err);
     });
+}
+
+
+if (w < 1000){
+    small()
 }
