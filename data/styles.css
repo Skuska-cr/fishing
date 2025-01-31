@@ -110,11 +110,11 @@ nav h1{
 
 .logomovement{
     animation: pushdown 0.5s linear forwards;
-
+    cursor: pointer;
 }
 @keyframes pushdown {
     from {
-        transform: translateX(0) rotateX(0deg);
+        transform: translateY(0) rotateX(0deg);
     }
     to {
         transform: translateY(20px) rotateX(360deg);;
@@ -209,11 +209,26 @@ nav h1{
     animation: showUp 0.5s linear forwards;
 }
 
+.logoOriginate{
+    animation: pushup 0.5s linear forwards;
+}
+
+@keyframes pushup {
+    0%{
+        transform: rotateX(0deg);
+    }
+    100%{
+        transform: rotateX(360deg);
+    }
+}
+
 @keyframes showUp {
    0%{
-        height: 0px;
+        
+        height: 0px; 
     }
     99%  {
+        
         height: 175px;
     }
     100%{
@@ -341,3 +356,20 @@ td {
         display: none;
     }
   }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+
+.bar {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(7, 201, 226);
+    transition: 0.3s;
+}
