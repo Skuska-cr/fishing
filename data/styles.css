@@ -206,14 +206,17 @@ nav h1{
 }
 
 .returning{
-    animation: showUp 0.1s linear forwards;
+    animation: showUp 0.5s linear forwards;
 }
 
 @keyframes showUp {
-    from {
-        height: 50px;
+   0%{
+        height: 0px;
     }
-    to {
+    99%  {
+        height: 175px;
+    }
+    100%{
         height: auto;
     }
 }
@@ -316,3 +319,10 @@ tr:hover {
 td {
     color: #333;
 }
+
+
+@media only screen and (max-width: 800px) {
+    body {
+      background-color: lightblue;
+    }
+  }
