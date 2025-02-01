@@ -10,7 +10,195 @@ body{
     flex-direction: column;
     align-items: center;
     background-color: rgb(255, 255, 255);
+    padding: 0px 50px;
+    margin: 0px 50px;
 }
+
+/* navbar */
+
+/* navbar positioning*/
+nav{
+    top: 0;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+nav .headding{
+    margin: 0px 20px;
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+}
+
+nav .headding h2{
+    margin: 0px 20px;
+    margin-top: 5px;
+}
+nav .headding h3{
+    bottom: 0;
+    margin: 0px 20px;
+}
+
+nav .choices{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+}
+
+nav .choices table{
+    display: table;
+    border-radius: 800px;
+    border-bottom: 2px solid rgb(2, 2, 2);
+}
+
+nav .choices tr{
+    width: 100%;
+}
+
+nav .choices td{
+    background-color: #33333300;
+    align-items: center;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+nav img{
+    position: absolute;
+    min-width: 80px;
+    max-width: 80px;
+    top: 40%;
+    border-bottom: 2px solid black;
+    border-radius: 500px;
+    display: block;
+}
+
+nav tr:hover{
+    background-color: white;
+}
+
+nav tr td:hover{
+    cursor: pointer;
+    background-color: rgba(168, 168, 168, 0.219);
+}
+
+/*navbar animation*/
+
+.backRotation{
+    animation: navBarbackRotation 1s forwards; /* Adjusted duration */
+    transform-style: preserve-3d; /* Ensures 3D rotation effect */
+
+}
+
+@keyframes navBarbackRotation {
+    from{
+        transform: rotateX(0deg);
+        top: 70%;
+    }
+    to{
+        transform: rotateX(-360deg);
+        top: 40%;
+    }
+}
+
+.rotation{
+    animation: navBarRotation 1s forwards; /* Adjusted duration */
+    transform-style: preserve-3d; /* Ensures 3D rotation effect */
+
+}
+
+@keyframes navBarRotation {
+    from{
+        transform: rotateX(0deg);
+        top: 40%;
+    }
+    to{
+        transform: rotateX(360deg);
+        top: 70%;
+    }
+}
+
+.navBarUnscrolled{
+    animation: scrolledUp 1s forwards;
+
+}
+
+@keyframes scrolledUp {
+    from{
+        transform: translateY(-55%);
+
+        width: 88%;
+    }
+    to{
+        transform: translateY(0);
+        width: 80%;
+    }
+}
+
+.navBarScrolled{
+    animation: scrolledDown 1s forwards;
+}
+
+
+@keyframes scrolledDown {
+    from{
+        transform: translateY(0);
+        width: 80%;
+    }
+    to{
+        transform: translateY(-55%);
+        width: 88%;
+    }
+}
+
+.designlines{
+    left: 50%;
+    right: 50%;
+    width: 50px;
+    height: 200px;
+    position: absolute;
+    transform: translateX(-25px) translateY(0px);
+    background-color: rgb(175, 195, 199);
+    border-radius: 25px;
+    animation: rollOut 1s forwards;
+}
+
+@keyframes rollOut {
+    from{
+        height: 0px;
+    }
+    to{
+        transform: translateX(-25px) translateY(-75px);
+        height: 200px;
+    }
+}
+
+.smallBarChoices {
+    background-color: rgb(39, 39, 39);
+    border-radius: 20px;
+    min-height: 50px;
+    padding: 0px 25px;
+    color: rgb(129, 184, 194);
+    border-bottom: 2px solid rgb(167, 167, 167);
+}
+
+/* /navbar */
+
 
 h1{
     font-weight: 1200;
@@ -25,258 +213,6 @@ h2{
     font-size: 30px;
     color: rgb(1, 73, 73)
 }
-.navdiv{
-    display: flex;
-    flex-direction: row;
-    align-items: self-end;
-    justify-content: space-between;
-    padding: 0px 15px;
-    width: 100%;
-    
-}
-nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    max-width: 1920px;
-    position: fixed;
-    top: 0;
-    background-color: white;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(0, 0, 0, 0.2);
-    max-height: 120px;
-}
-
-nav h3{
-    font-weight: 1200;
-    font-size: 20px;
-    color: rgb(1, 73, 73);
-    width: 100%;
-    margin: 0 auto; /* Centers it properly */
-    padding-left: 10%;
-    padding-top: 15px;
- }
-
-
-.scrolled{
-    background-color: rgb(14, 14, 15);
-    color: white;
-    animation: hideAnimation 0.2s linear forwards;
-}
-
-@keyframes hideAnimation {
-    from {
-        background-color: rgb(247, 247, 247);
-        transform: translateY(0);
-        
-    }
-    to {
-        transform: translateY(-10vh);
-        background-color: rgb(14, 14, 15);
-
-    }
-}
-
-
-.divsection{
-    border-bottom: 3px solid black;
-    border-top: 1px solid black;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 60%;
-    height: 50px;
-    bottom: 0;
-    background-color: rgba(184, 184, 184, 0.233);
-    z-index: 100;
-}
-
-.divsection p{
-    font-size: 15px;
-    width: 50%;
-    justify-content: center;
-    display: flex;
-    border-right: 1px solid black;
-    cursor: pointer;
-        
-}
-
-.divsection p:hover {
-    font-weight: bolder;
-    
-}
-
-.logomovement{
-    animation: pushdown 0.5s linear forwards;
-    cursor: pointer;
-}
-@keyframes pushdown {
-    from {
-        transform: translateY(0) rotateX(0deg);
-    }
-    to {
-        transform: translateY(20px) rotateX(360deg);;
-    }
-}
-
-.small{
-    max-height: 15vh;
-}
-
-.logonavbarbox{
-    z-index: 200;
-    min-width: 50px; 
-    min-height: 50px;
-    max-width: 50px;
-    max-height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 500px;
-    margin: 0px 0px;
-    padding: 0px;
-    border: 3px solid black;
-    position: relative;
-    background-color: rgb(255, 255, 255);
-   
-}
-.moved1 {
-    animation: rollAnimation 0.5s linear forwards;
-}
-
-@keyframes rollAnimation {
-    from {
-        transform: translateX(0) rotate(0deg);
-    }
-    to {
-        transform: translateX(-25vw) rotate(-360deg);
-    }
-}
-
-.returningl {
-    animation: rollBackward 0.5s linear forwards;
-}
-
-@keyframes rollBackward {
-    from {
-        transform: translateX(-25vw) rotate(-360deg);
-    }
-    to {
-        transform: translateX(0) rotate(0deg);
-    }
-}
-
-.moved4 {
-    animation: rollAnimationr 0.5s linear forwards;
-}
-
-@keyframes rollAnimationr {
-    from {
-        transform: translateX(0) rotate(0deg);
-    }
-    to {
-        transform: translateX(25vw) rotate(360deg);
-    }
-}
-
-.returningr {
-    animation: rollBackwardr 0.5s linear forwards;
-}
-
-@keyframes rollBackwardr {
-    from {
-        transform: translateX(25vw) rotate(360deg);
-    }
-    to {
-        transform: translateX(0) rotate(0deg);
-    }
-}
-
-
-@keyframes rollBackwardr {
-    from {
-        transform: translateX(25vw) rotate(360deg);
-    }
-    to {
-        transform: translateX(0 vw) rotate(0deg);
-    }
-}
-
-.returning{
-    animation: showUp 0.5s linear forwards;
-}
-
-.logoOriginate{
-    animation: pushup 0.5s linear forwards;
-}
-
-@keyframes pushup {
-    0%{
-        transform: rotateX(0deg);
-    }
-    100%{
-        transform: rotateX(360deg);
-    }
-}
-
-@keyframes showUp {
-   0%{
-        
-        height: 0px; 
-    }
-    99%  {
-        
-        height: 175px;
-    }
-    100%{
-        height: auto;
-    }
-}
-
-main{
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    justify-content: center;
-    max-width: 1920px;
-    margin: 10% 20%;
-
-}
-
-.table{
-    width: 10%;
-    margin-left: 30px;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3), -3px -3px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    padding: 15px;
-    max-height: 500px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    position: fixed;
-    left: 0;
-    top: 50%;
-}
-
-.table p{
-    padding: 5px;
-}
-
-.content{
-    
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    margin-left: 2%;
-    padding:  15px;
-    border-left: 1px solid rgba(128, 128, 128, 0.603);
-    margin-left: 20%;
-    padding-left: 20%;
-    padding-right: 20%;
-}
-
 
 
 .font{
@@ -305,11 +241,10 @@ main{
 
 table {
     width: 100%;
-    border-collapse: collapse;
+
     margin: 20px 0;
     font-size: 18px;
     text-align: left;
-    background: #f8f9fa;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -317,7 +252,6 @@ table {
 
 th, td {
     padding: 12px;
-    border-bottom: 2px solid #ddd;
 }
 
 th {
@@ -335,50 +269,190 @@ td {
 }
 
 
-@media only screen and (max-width: 800px) {
-
-    nav{
-        max-width: 800px;
-        left: 0;
-
-    }
-    .divsection{
-        max-width: 25vw;
-        background-color: rgb(31, 31, 31);
-        border-radius: 25px;
-        justify-content: left;
-        min-width: 70%;
-    }
-
-    main{
-        max-width: 100%;
-        min-width: 100%;
-        padding: 0px;
-        margin: 0px;
-    }
-    .table{
-        display: none;
-    }
-    .content{
-        width: 100%;
-        margin: 0;
-        padding: 25px;
-    }
-  }
-
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 35px;
-    height: 15px;
+.hamburger {
+    font-size: 30px;
     cursor: pointer;
-    display: none;
+    display: flex;
+    flex-direction: row ;
 }
 
-.bar {
-    width: 100%;
-    height: 3px;
-    background-color: rgb(236, 236, 236);
-    transition: 0.3s;
+.showList{
+    width: 50px;
+    border-radius: 20px;
+    border-right: 3px solid rgb(129, 184, 194);
+    border-bottom: 3px solid rgb(129, 184, 194);
+    background-color: rgb(39, 39, 39);
+    animation: displayList 0.5s forwards;
+    position: absolute;
+    z-index: -1;
+    padding: 15px;
+    color: rgb(175, 207, 212);
 }
+
+@keyframes displayList {
+    0%{
+        transform: translateY(10px);
+        height: 0px;
+        right: 2px;
+        width: 0px;
+    }
+
+    99%{
+        height: 500px;
+    }
+    
+    100%{
+        right: 2px;
+        width: 300px;
+        transform: translateX(35px);
+        height: auto;
+    }
+}
+
+.showList2{
+    width: 50px;
+    border-radius: 20px;
+    border-right: 3px solid rgb(129, 184, 194);
+    border-bottom: 3px solid rgb(129, 184, 194);
+    background-color: rgb(39, 39, 39);
+    animation: displayList2 0.5s forwards;
+    position: absolute;
+    z-index: -1;
+    padding: 15px;
+    padding-top: 10%;
+    color: rgb(175, 207, 212);
+}
+
+@keyframes displayList2 {
+    0%{
+        transform: translateY(10px) translateX(0px);
+        height: 0px;
+        right: 2px;
+        width: 0px;
+    }
+
+    99%{
+        height: 500px;
+    }
+    
+    100%{
+        right: 2px;
+        width: 300px;
+        transform: translateX(35px) translateX(-5%);
+        right: 0;
+        height: auto;
+    }
+}
+
+.removeList{
+    height: 500px;
+    animation: hideList 0.5s forwards;
+    position: absolute;
+    z-index: -1;
+}
+@keyframes hideList {
+    0%{
+        transform: translateY(45px) ;
+        height: 500px;
+        right: 2px;
+        width: 300px;
+       
+    }
+
+    100%{
+        transform: translateY(10px);
+        height: 0px;
+        right: 2px;
+        width: 2px;
+        padding: 0px;
+        
+    }
+}
+
+.mainPagepicture{
+    min-width: 60%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    
+
+}
+
+.main{
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 50px;
+}
+
+.ms{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    font-size: 25px;
+    background-color: rgb(39, 39, 39);
+    border-radius: 20px;
+}
+.mms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 25px;
+    font-size: 20px;
+    overflow: hidden;
+}
+.ms p{
+    padding: 0px 25px;
+    margin: 2px;
+   
+    font-size: 15px;
+
+}
+
+.animationLeftSlide{
+    animation: lss 0.5s forwards
+}
+
+@keyframes lss {
+    0%{
+        height: 0;
+    }
+
+    100%{
+        height: 200px;
+
+    }
+}
+.animationUnSlide{
+    animation: uss 0.5s forwards
+}
+
+
+@keyframes uss {
+    0%{
+        height: 200px;
+    }
+
+    100%{
+        
+        height: 0px;
+    }
+}
+
+.clicked{
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+}
+.clicked h3{
+    border-bottom: 2px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+}
+
