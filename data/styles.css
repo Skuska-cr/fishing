@@ -587,3 +587,8 @@ td {
         height: 00px;
     }
 }
+
+
+.cssversion::after {
+content: "1.00"
+}
