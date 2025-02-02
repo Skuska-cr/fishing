@@ -265,19 +265,22 @@ manus.forEach(m => {
             x.innerHTML = page
             list.appendChild(x);
             })
-        document.querySelector(".a").innerHTML = "";
-        document.querySelector(".b").innerHTML = "";
-        document.querySelector(".c").innerHTML = "";
-        document.querySelector(".d").innerHTML = "";
+        document.querySelectorAll(".clickedDiv").forEach(el => {
+            el.classList.remove("clickedDiv");
+            el.classList.add("unClickedDiv");
+        });
         if (!m.classList.contains("clicked")){
-            if(m.innerHTML == "O organizácií") document.querySelector(".a").appendChild(list);
-            if(m.innerHTML == "Aktivity a podujatia") document.querySelector(".b").appendChild(list);
-            if(m.innerHTML == "Administratíva a legislatíva") document.querySelector(".c").appendChild(list);
-            if(m.innerHTML == "Komunikácia a informácie") document.querySelector(".d").appendChild(list);
+            if(m.innerHTML == "O organizácií") {document.querySelector(".a").appendChild(list); document.querySelector(".a").classList.remove("unClickedDiv"); document.querySelector(".a").classList.add("clickedDiv")};
+            if(m.innerHTML == "Aktivity a podujatia") {document.querySelector(".b").appendChild(list); document.querySelector(".b").classList.remove("unClickedDiv"); document.querySelector(".b").classList.add("clickedDiv")};
+            if(m.innerHTML == "Administratíva a legislatíva") {document.querySelector(".c").appendChild(list);  document.querySelector(".c").classList.remove("unClickedDiv"); document.querySelector(".c").classList.add("clickedDiv")};
+            if(m.innerHTML == "Komunikácia a informácie") {document.querySelector(".d").appendChild(list);document.querySelector(".d").classList.remove("unClickedDiv"); document.querySelector(".d").classList.add("clickedDiv")};
             m.classList.add("clicked");
+            
         }
         else{
             m.classList.remove("clicked");
+            
+            
         }
 
     });
