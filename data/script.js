@@ -90,22 +90,30 @@ function addPage(pg,p,main){
 function displayList(hamburger,displayed,menudiv,s){
     if(!displayed){
         if(s == 1){
+            menudiv.classList.remove("removeList2")
             menudiv.classList.add("showList2")
             
         }
         menudiv.classList.remove("removeList")
         menudiv.classList.add("showList")
-        for ([pg,p] of Object.entries(pages)){
-            menudiv.appendChild(addPage(pg,p,menudiv))
-            if (window.innerWidth < 1200){
-                menudiv.style.position = "absolute"
+        setTimeout(()=>{
+            for ([pg,p] of Object.entries(pages)){
+                menudiv.appendChild(addPage(pg,p,menudiv))
             }
-        }
+        },300);
+
     }
     else{
         menudiv.innerHTML = ""
-        menudiv.classList.remove("removeList")
-        menudiv.classList.add("removeList")
+        if(s == 1){
+            menudiv.classList.remove("removeList2")
+            menudiv.classList.add("removeList2")
+        }
+        else{
+            menudiv.classList.remove("removeList")
+            menudiv.classList.add("removeList")
+        }
+
 
     }
 
@@ -126,6 +134,7 @@ function smallNavBar(s){
     head.classList.add("smallHead")
     head.classList.add("remove")
     head.innerHTML = "MO SRZ Medzilaborce"
+    
     filling.appendChild(head)
 
     var borders = document.createElement("div");
@@ -190,10 +199,13 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("resize", () => {
-    
+    var s = document.querySelector(".smallHead");
+    if (s != null && window.innerWidth < 400) s.style.fontSize = "13px";
+    if (s != null && window.innerWidth < 300) s.innerHTML = "SRZ";
     if(window.innerWidth < 1200 && small == 0){
             small = 1;
             smallNavBar(0);
+            
     }
     else if (window.innerWidth >= 1200 && small == 1){
  
@@ -221,7 +233,8 @@ window.addEventListener("resize", () => {
 if(window.innerWidth < 1200){
     small = 1;
     smallNavBar(1);
-    
+    var s = document.querySelector(".smallHead");
+    if (s != null && window.innerWidth < 400) s.style.fontSize = "13px"
     
 
 }
