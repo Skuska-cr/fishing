@@ -34,7 +34,7 @@ function addPage(pg,p,main){
     maindiv.classList.add("mms");
     div.classList.add("ms");
     var name = document.createElement("h3");
-    name.innerHTML = pg+ " >"
+    name.innerHTML = pg
     maindiv.appendChild(name);
 
     p.forEach(a => {
@@ -123,10 +123,10 @@ function smallNavBar(s){
     document.querySelector(".navBarLogo").classList.remove("navBarbackRotation");
     document.querySelector(".navBarLogo").classList.add("rotation")
     document.querySelector(".navTB").style.display = "none"
-
+    document.querySelector(".headding").style.display ="none"
     var navbar = document.querySelector(".navbar");
     var filling = document.querySelector(".choices");
-    
+    filling.style.backgroundColor = "rgb(4, 4, 8)";
 
     filling.classList.add("smallBarChoices");
 
@@ -177,6 +177,7 @@ window.addEventListener("scroll", () => {
         
     }
     else if(window.innerWidth > 1200){
+       document.querySelector(".headding").style.display ="block"
         small = 0;
         document.querySelector(".navBarLogo").classList.remove("rotation")
         document.querySelector(".navBarLogo").classList.add("backRotation");
@@ -185,7 +186,7 @@ window.addEventListener("scroll", () => {
         var navbar = document.querySelector(".navbar");
         var filling = document.querySelector(".choices");
         var head = document.querySelector(".smallHead")
-        
+        filling.style.backgroundColor = "rgb(255, 255, 255)";
         if(head != null) filling.removeChild(head)
         filling.classList.remove("smallBarChoices");
 
@@ -217,7 +218,7 @@ window.addEventListener("resize", () => {
         var navbar = document.querySelector(".navbar");
         var filling = document.querySelector(".choices");
         var head = document.querySelector(".smallHead")
-        
+        filling.style.backgroundColor = "rgb(255, 255, 255)";
         filling.removeChild(head)
         filling.classList.remove("smallBarChoices");
 
@@ -244,3 +245,43 @@ else{
     document.querySelector(".navBarLogo").classList.add("backRotation");
 }
 
+var manus = document.querySelectorAll(".tdRoll");
+var placeholder = document.querySelector(".Listplaceholder");
+manus.forEach(m => {
+    var list = document.createElement("div")
+    
+    m.addEventListener("click", () => {
+        manus.forEach(n => {
+            if(n != m)n.classList.remove("clicked")
+        
+        })
+
+        
+        placeholder.style.display = "grid";
+        list.innerHTML = ""
+        
+        pages[m.innerHTML].forEach(page => {
+            var x = document.createElement("p");
+            x.innerHTML = page
+            list.appendChild(x);
+            })
+        document.querySelector(".a").innerHTML = "";
+        document.querySelector(".b").innerHTML = "";
+        document.querySelector(".c").innerHTML = "";
+        document.querySelector(".d").innerHTML = "";
+        if (!m.classList.contains("clicked")){
+            if(m.innerHTML == "O organizácií") document.querySelector(".a").appendChild(list);
+            if(m.innerHTML == "Aktivity a podujatia") document.querySelector(".b").appendChild(list);
+            if(m.innerHTML == "Administratíva a legislatíva") document.querySelector(".c").appendChild(list);
+            if(m.innerHTML == "Komunikácia a informácie") document.querySelector(".d").appendChild(list);
+            m.classList.add("clicked");
+        }
+        else{
+            m.classList.remove("clicked");
+        }
+
+    });
+
+
+   
+});  
