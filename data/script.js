@@ -291,4 +291,4 @@ manus.forEach(m => {
    
 });  
 
-document.querySelector(".javascriptversion").innerHTML = "Javascript verzia: 1.00"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.00"
