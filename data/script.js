@@ -1,7 +1,7 @@
 
 window.addEventListener("load", function () {
     let navbarHeight = document.querySelector("nav").offsetHeight;
-    document.querySelector("main").style.marginTop = navbarHeight + "px";
+    document.querySelector(".main").style.marginTop = navbarHeight + "px";
 });
 
 function copy(element){
@@ -91,6 +91,7 @@ function displayList(hamburger,displayed,menudiv,s){
     if(!displayed){
         if(s == 1){
             menudiv.classList.add("showList2")
+            
         }
         menudiv.classList.remove("removeList")
         menudiv.classList.add("showList")
@@ -159,14 +160,43 @@ function smallNavBar(s){
 }
 var small = 0;
 window.addEventListener("scroll", () => {
-    if (window.scrollY >= 100 && done == 0) {
+    if (window.scrollY >= 400 && window.innerWidth >= 1200) {
         if(small == 0){
             small = 1;
             smallNavBar(0);
         }
         
     }
-    else if( done == 0){
+    else if(window.innerWidth > 1200){
+        small = 0;
+        document.querySelector(".navBarLogo").classList.remove("rotation")
+        document.querySelector(".navBarLogo").classList.add("backRotation");
+        document.querySelector(".navTB").style.display = "table"
+
+        var navbar = document.querySelector(".navbar");
+        var filling = document.querySelector(".choices");
+        var head = document.querySelector(".smallHead")
+        
+        if(head != null) filling.removeChild(head)
+        filling.classList.remove("smallBarChoices");
+
+        navbar.classList.remove("navBarScrolled");
+        navbar.classList.add("navBarUnscrolled");
+        var r = document.querySelectorAll(".remove")
+        r.forEach(e => {
+            filling.removeChild(e)
+        });
+    }
+});
+
+window.addEventListener("resize", () => {
+    
+    if(window.innerWidth < 1200 && small == 0){
+            small = 1;
+            smallNavBar(0);
+    }
+    else if (window.innerWidth >= 1200 && small == 1){
+ 
         small = 0;
         document.querySelector(".navBarLogo").classList.remove("rotation")
         document.querySelector(".navBarLogo").classList.add("backRotation");
@@ -187,19 +217,17 @@ window.addEventListener("scroll", () => {
         });
     }
 });
-var done = 0; 
-window.addEventListener("resize", () => {
-    
-    if(window.innerWidth < 1200 && done == 0){
-            done=1;
-            smallNavBar(0);
-        
-    }
-});
 
-if(window.innerWidth < 1200 && done == 0){
-    done=1;
+if(window.innerWidth < 1200){
+    small = 1;
     smallNavBar(1);
-   
+    
+    
 
 }
+else{
+    var navbar = document.querySelector(".navbar");
+    navbar.classList.add("navBarUnscrolled");
+    document.querySelector(".navBarLogo").classList.add("backRotation");
+}
+
