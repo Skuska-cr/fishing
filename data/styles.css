@@ -485,9 +485,12 @@ td {
         height: 200px;
     }
 
-    100%{
+    99%{
         
         height: 0px;
+    }
+    100%{
+        display: none;
     }
 }
 
