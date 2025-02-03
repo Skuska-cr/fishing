@@ -136,18 +136,20 @@ nav tr td:hover{
     0%{
         transform: rotateX(0deg);
         top: 40%;
-        min-width: 80px;
-        max-width: 80px;
+        min-width: auto;
+        max-width: auto;
+        width: 80px;
     }
     50%{
-        min-width: 50px;
-        max-width: 50px;
+        transform: rotateX(180deg);
+        width: 40px;
     }
     100%{
         transform: rotateX(360deg);
         top: 50%;
-        min-width: 80px;
-        max-width: 80px;
+        width: 80px;
+        min-width: auto;
+        max-width: 15vw;
     }
 }
 
@@ -160,7 +162,7 @@ nav tr td:hover{
     from{
         transform: translateY(-55%);
 
-        width: 88%;
+        width: 100%;
     }
     to{
         transform: translateY(0);
@@ -176,10 +178,10 @@ nav tr td:hover{
 @keyframes scrolledDown {
     from{
         width: 80%;
+        padding: 0% 0%;
     }
     to{
-        width: 100%;
-        
+        width: 100%;       
         
     }
 }
@@ -191,7 +193,7 @@ nav tr td:hover{
     height: 200px;
     position: absolute;
     transform: translateX(-25px) translateY(0px);
-    background-color: rgb(175, 195, 199);
+    background-color: rgb(255, 255, 255);
     border-radius: 25px;
     animation: rollOut 1s forwards;
 }
@@ -209,8 +211,10 @@ nav tr td:hover{
 .smallBarChoices {
     box-shadow: -2px 1px 10px rgb(12, 12, 12);
     min-height: 70px;
-    color: rgb(87, 153, 165);
+    color: rgb(0, 182, 206);
     border-bottom: 2px solid rgb(167, 167, 167);
+    width: 100%;
+    
 }
 
 /* /navbar */
@@ -290,51 +294,56 @@ td {
     cursor: pointer;
     display: flex;
     flex-direction: row ;
-    padding-right: 25px;
+    padding: 0px 2%;
 }
 
-.showList{
+.showList {
     width: 50px;
     border-radius: 20px;
-    border-right: 3px solid rgb(129, 184, 194);
-    border-bottom: 3px solid rgb(129, 184, 194);
-    border-left: 3px solid rgb(129, 184, 194);
-    background-color: rgba(4, 4, 8, 0.918);
+    border-right: 3px solid rgb(0, 182, 206);
+    border-bottom: 3px solid rgb(0, 182, 206);
+    border-left: 3px solid rgb(0, 182, 206);
+    background-color: rgb(20, 22, 22);
     animation: displayList 0.5s forwards;
-    position: absolute;
-    z-index: -1;
+    position: fixed; /* Keeps it relative to the viewport */
+    z-index: 1000; /* Keeps it above other elements */
     padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    color: rgb(140, 163, 167);
+    color: rgb(0, 182, 206);
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts the element to be centered */
 }
 
 @keyframes displayList {
-    0%{
-        transform: translateY(10px);
-        width: 0px;
-        right: 2px;
-        height: 90vh;
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
     }
 
-
-    
-    100%{
-        right: 2px;
-        width: 300px;
-        transform: translateY(35px);
-        height: 90vh;
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
     }
 }
+
 
 .showList2{
     border-radius: 20px;
     border-right: 3px solid rgb(129, 184, 194);
     border-bottom: 3px solid rgb(129, 184, 194);
-    background-color: rgba(20, 20, 24, 0.918);
+    background-color: rgb(20, 22, 22);
     animation: displayList2 0.5s forwards;
     position: absolute;
     z-index: -1;
@@ -348,19 +357,22 @@ td {
 }
 
 @keyframes displayList2 {
-    0%{
-        transform: translateY(10px) translateX(0px);
-        height: 0px;
-        right: 2px;
-        width: 0px;
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
     }
 
-    
-    100%{
-        right: 2px;
-        width: 100vw;
-        transform: translateY(10px) translateX(25px);
-        height: 90vh;
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
     }
 }
 
@@ -372,19 +384,25 @@ td {
 }
 
 @keyframes hideList {
-    0%{
-        height: 90vh;
-        right: 2px;
-        width: 300px;
-        transform: translateY(35px) translateX(0px);
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+
     }
 
-    100%{
-        height: 0vh;
-        right: 2px;
-        width: 300px;
-        padding: 0%;
-        transform: translateY(35px) translateX(0px);
+    100% {
+
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+
     }
 }
 .removeList2{
@@ -395,22 +413,25 @@ td {
 }
 
 @keyframes hideList2 {
-    0%{
-        right: 2px;
-        width: 90vw;
-        transform: translateY(10px) translateX(25px);
-        height: 90vh;
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+
     }
 
-    99%{
-        transform: translateY(10px) translateX(0px);
-        height: 0px;
-        right: 2px;
-        width: 0px;
-        padding: 0px;
-    }
-    100%{
-        display: none;
+    100% {
+
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+
     }
 }
 
@@ -441,8 +462,8 @@ td {
     justify-content: space-around;
     flex-direction: column;
     background-color: rgba(255, 255, 255, 0.089);
-    box-shadow: 2px 2px 2px rgb(129, 184, 194);
     border-radius: 20px;
+    width: 90%;
 }
 .mms{
     display: flex;
@@ -453,7 +474,17 @@ td {
     margin: 25px;
     font-size: 15px;
     overflow: hidden;
+    width: 90%;
+    border: 1px solid white;
+    border-radius: 20px;
+    }
+
+.mms:hover{
+    background-color: rgba(129, 184, 194, 0.103);
+    border-radius: 20px;
+    
 }
+
 .ms p{
     padding: 0px 25px;
     margin: 2px;
@@ -515,11 +546,12 @@ td {
         margin: 5px;
         font-size: 15px;
         overflow: hidden;
+        min-height: 100px;
     }
     .ms p{
         padding: 0px 25px;
-        margin: 2px;
-        font-size: 13px;
+        margin: 10px;
+        font-size: 15px;
     
     }
     .showList2{
@@ -528,7 +560,24 @@ td {
     .headding{
         max-height: 70px;
     }
-    
+    .ms{
+       justify-content: start;
+       max-width: auto;
+       
+
+    }
+    .smallHead{
+        padding: 0px 2%;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+        font-style: italic;
+        font-weight: bold;
+        text-transform: uppercase; 
+        font-size: 3vw;
+    }
+    .designlines{
+        background-color: rgba(255, 255, 255, 0);
+    }
 }
 
 .Listplaceholder{
@@ -552,7 +601,12 @@ td {
 }
 
 .smallHead{
-    padding: 0px 25px;
+    padding: 0px 10%;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase; /* Optional, makes text uppercase */
 }
 
 .clickedDiv{
@@ -590,5 +644,5 @@ td {
 
 
 .cssversion::after {
-content: "1.01"
+content: "1.02"
 }
