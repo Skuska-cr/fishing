@@ -128,8 +128,7 @@ function smallNavBar(s){
     document.querySelector(".headding").style.display ="none"
     var navbar = document.querySelector(".navbar");
     var filling = document.querySelector(".choices");
-    filling.style.backgroundColor = "rgb(4, 4, 8)";
-
+    filling.style.backgroundColor = "rgb(20, 20, 20)";
     filling.classList.add("smallBarChoices");
 
     var head = document.createElement("h3");
@@ -204,18 +203,6 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener("resize", () => {
     
-    var s = document.querySelector(".smallHead");
-    if (s != null && window.innerWidth < 600) s.style.fontSize = "14px";
-    if (s != null && window.innerWidth < 400) s.innerHTML = "SRZ";
-    if(window.innerWidth > window.innerHeight &&  document.querySelector(".landscapeResolutionAdd") != null ){
-        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
-        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "row";
-        console.log("row")
-    }
-    else if (document.querySelector(".landscapeResolutionAdd") != null){
-        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
-        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "column";
-    }
     if(window.innerWidth < 1200 && small == 0){
             small = 1;
             smallNavBar(0);
@@ -247,15 +234,7 @@ window.addEventListener("resize", () => {
 
 if(window.innerWidth < 1200){
     small = 1;
-    smallNavBar(1);
-    var s = document.querySelector(".smallHead");
-    if (s != null && window.innerWidth < 600) s.style.fontSize = "14px";
-    if (s != null && window.innerWidth < 400) s.innerHTML = "SRZ";
-    if(window.innerWidth > window.innerHeight){
-        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
-        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "row";
-       
-    }  
+    smallNavBar(1); 
 
 }
 else{
@@ -308,4 +287,4 @@ manus.forEach(m => {
    
 });  
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.01"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.02"
