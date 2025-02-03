@@ -451,7 +451,7 @@ td {
     text-align: center;
     flex-direction: column;
     margin: 25px;
-    font-size: 20px;
+    font-size: 15px;
     overflow: hidden;
 }
 .ms p{
@@ -590,5 +590,5 @@ td {
 
 
 .cssversion::after {
-content: "1.00"
+content: "1.01"
 }
