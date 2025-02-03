@@ -43,6 +43,12 @@ nav .headding{
 
 }
 
+h3{
+    font-family: "Times New Roman", Times, serif;
+    font-style:oblique;
+    font-weight: bold;
+}
+
 nav .headding h2{
     margin: 0px 20px;
     margin-top: 5px;
@@ -211,7 +217,7 @@ nav tr td:hover{
 .smallBarChoices {
     box-shadow: -2px 1px 10px rgb(12, 12, 12);
     min-height: 70px;
-    color: rgb(0, 182, 206);
+    color: rgb(255, 255, 255);
     border-bottom: 2px solid rgb(167, 167, 167);
     width: 100%;
     
@@ -300,10 +306,8 @@ td {
 .showList {
     width: 50px;
     border-radius: 20px;
-    border-right: 3px solid rgb(0, 182, 206);
-    border-bottom: 3px solid rgb(0, 182, 206);
-    border-left: 3px solid rgb(0, 182, 206);
-    background-color: rgb(20, 22, 22);
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(228, 228, 228);
     animation: displayList 0.5s forwards;
     position: fixed; /* Keeps it relative to the viewport */
     z-index: 1000; /* Keeps it above other elements */
@@ -313,7 +317,7 @@ td {
     align-items: center;
     text-align: center;
     flex-direction: column;
-    color: rgb(0, 182, 206);
+    color: rgb(0, 0, 0);
     left: 50%; /* Centers horizontally */
     transform: translateX(-50%); /* Adjusts the element to be centered */
 }
@@ -331,7 +335,8 @@ td {
     100% {
         left: 50%;
         transform: translateX(-50%);
-        width: 25%; /* Final width */
+        width: 25%;
+        min-width: 400px; /* Final width */
         height: 90vh; /* Almost full screen height */
         opacity: 1; /* Fully visible */
         z-index: -1;
@@ -340,19 +345,22 @@ td {
 
 
 .showList2{
+    width: 50px;
     border-radius: 20px;
-    border-right: 3px solid rgb(129, 184, 194);
-    border-bottom: 3px solid rgb(129, 184, 194);
-    background-color: rgb(20, 22, 22);
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(228, 228, 228);
     animation: displayList2 0.5s forwards;
-    position: absolute;
-    z-index: -1;
+    position: fixed; /* Keeps it relative to the viewport */
+    z-index: 1000; /* Keeps it above other elements */
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: column;
-    color: rgb(87, 153, 165);
+    color: rgb(0, 0, 0);
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts the element to be centered */
     
 }
 
@@ -450,7 +458,7 @@ td {
 
 .main{
     border-radius: 20px;
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 50px;
     
 }
@@ -461,7 +469,7 @@ td {
     text-align: center;
     justify-content: space-around;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.089);
+    background-color: rgba(255, 255, 255, 0.185);
     border-radius: 20px;
     width: 90%;
 }
@@ -475,20 +483,25 @@ td {
     font-size: 15px;
     overflow: hidden;
     width: 90%;
-    border: 1px solid white;
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 20px;
     }
 
 .mms:hover{
-    background-color: rgba(129, 184, 194, 0.103);
+    background-color: rgba(133, 133, 133, 0.103);
     border-radius: 20px;
     
 }
 
 .ms p{
-    padding: 0px 25px;
+    padding: 5px 25px;
     margin: 2px;
     font-size: 15px;
+
+}
+
+.ms p:hover{
+    font-weight: bold;
 
 }
 
@@ -642,5 +655,5 @@ td {
 
 
 .cssversion::after {
-content: "1.03"
+content: "CSS Verzia: 1.04"
 }
