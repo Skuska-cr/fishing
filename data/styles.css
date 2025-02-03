@@ -561,11 +561,8 @@ td {
         max-height: 70px;
     }
     .ms{
-       justify-content: start;
-       max-width: auto;
-       
-
-    }
+        max-height: 50%;
+     }
     .smallHead{
         padding: 0px 2%;
         color: white;
