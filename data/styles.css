@@ -544,14 +544,15 @@ td {
         text-align: center;
         flex-direction: column;
         margin: 5px;
-        font-size: 15px;
+        font-size: 13px;
         overflow: hidden;
-        min-height: 100px;
+        
+        width: 75%;
     }
     .ms p{
         padding: 0px 25px;
         margin: 10px;
-        font-size: 15px;
+        font-size: 12px;
     
     }
     .showList2{
@@ -641,5 +642,5 @@ td {
 
 
 .cssversion::after {
-content: "1.02"
+content: "1.03"
 }
