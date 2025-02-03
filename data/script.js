@@ -152,6 +152,7 @@ function smallNavBar(s){
     filling.appendChild(hamburger);
     var displayed = false
     var menudiv = document.createElement("div");
+    menudiv.classList.add("landscapeResolutionAdd")
     hamburger.appendChild(menudiv)
     document.querySelector(".hamb").addEventListener("click", () => {
 
@@ -202,12 +203,23 @@ window.addEventListener("scroll", () => {
 });
 
 window.addEventListener("resize", () => {
+    
     var s = document.querySelector(".smallHead");
-    if (s != null && window.innerWidth < 400) s.style.fontSize = "13px";
-    if (s != null && window.innerWidth < 300) s.innerHTML = "SRZ";
+    if (s != null && window.innerWidth < 600) s.style.fontSize = "14px";
+    if (s != null && window.innerWidth < 400) s.innerHTML = "SRZ";
+    if(window.innerWidth > window.innerHeight &&  document.querySelector(".landscapeResolutionAdd") != null ){
+        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
+        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "row";
+        console.log("row")
+    }
+    else if (document.querySelector(".landscapeResolutionAdd") != null){
+        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
+        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "column";
+    }
     if(window.innerWidth < 1200 && small == 0){
             small = 1;
             smallNavBar(0);
+           
             
     }
     else if (window.innerWidth >= 1200 && small == 1){
@@ -237,8 +249,13 @@ if(window.innerWidth < 1200){
     small = 1;
     smallNavBar(1);
     var s = document.querySelector(".smallHead");
-    if (s != null && window.innerWidth < 400) s.style.fontSize = "13px"
-    
+    if (s != null && window.innerWidth < 600) s.style.fontSize = "14px";
+    if (s != null && window.innerWidth < 400) s.innerHTML = "SRZ";
+    if(window.innerWidth > window.innerHeight){
+        document.querySelector(".landscapeResolutionAdd").style.display = "flex";
+        document.querySelector(".landscapeResolutionAdd").style.flexDirection = "row";
+       
+    }  
 
 }
 else{
@@ -291,4 +308,4 @@ manus.forEach(m => {
    
 });  
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.00"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.01"
