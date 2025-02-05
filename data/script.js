@@ -1,7 +1,7 @@
 
 window.addEventListener("load", function () {
     let navbarHeight = document.querySelector("nav").offsetHeight;
-    document.querySelector(".main").style.marginTop = navbarHeight + "px";
+    document.querySelector(".main").style.marginTop = 0.7*navbarHeight + "px";
 });
 
 function copy(element){
@@ -122,6 +122,15 @@ function displayList(hamburger,displayed,menudiv,s){
 }
 
 function smallNavBar(s){
+    document.querySelectorAll(".clickedDiv").forEach(el => {
+        el.classList.remove("clickedDiv");
+        el.classList.add("unClickedDiv");
+        el.innerHTML = ""
+    });
+    document.querySelectorAll(".tdRoll").forEach(n => {
+        n.classList.remove("clicked")
+            
+    })
     document.querySelector(".navBarLogo").classList.remove("navBarbackRotation");
     document.querySelector(".navBarLogo").classList.add("rotation")
     document.querySelector(".navTB").style.display = "none"
@@ -251,21 +260,31 @@ manus.forEach(m => {
     m.addEventListener("click", () => {
         manus.forEach(n => {
             if(n != m)n.classList.remove("clicked")
-        
+                
         })
 
         
         placeholder.style.display = "grid";
         list.innerHTML = ""
-        
+        list.style.width = "90%"
+        list.style.display = "flex";
+        list.style.justifyContent = "center"
+        list.style.flexDirection = "column"
+        list.style.alignItems = "center"
         pages[m.innerHTML].forEach(page => {
             var x = document.createElement("p");
+            x.classList.add("hoverStyle")
             x.innerHTML = page
             list.appendChild(x);
+            x.addEventListener("click" ,() => {
+                x.style.cursor = "pointer";
+                window.location.href = `${createSlug(page)}.html`;
+            });
             })
         document.querySelectorAll(".clickedDiv").forEach(el => {
             el.classList.remove("clickedDiv");
             el.classList.add("unClickedDiv");
+            el.innerHTML = ""
         });
         if (!m.classList.contains("clicked")){
             if(m.innerHTML == "O organizácií") {document.querySelector(".a").appendChild(list); document.querySelector(".a").classList.remove("unClickedDiv"); document.querySelector(".a").classList.add("clickedDiv")};
@@ -287,4 +306,4 @@ manus.forEach(m => {
    
 });  
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.04"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.05"
