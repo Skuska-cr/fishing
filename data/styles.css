@@ -475,7 +475,6 @@ td {
     text-align: center;
     justify-content: space-around;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.185);
     border-radius: 20px;
     width: 90%;
 }
@@ -493,23 +492,40 @@ td {
     border-radius: 20px;
     }
 
-.mms:hover{
-    background-color: rgba(133, 133, 133, 0.103);
+.mms.clicked{
+    border-right: 0px;
+    border-left: 0px;
+}
+
+.mms:not(.clicked):hover {
+    background-color: rgba(31, 30, 30, 0.452);
     border-radius: 20px;
-    
+    animation: blacked 0.5s forwards;
 }
 
 .ms p{
-    padding: 5px 25px;
-    margin: 2px;
-    font-size: 17px;
 
-    
+    font-size: 17px;
+    width: 90%;
+    border-radius: -20px;
+    font-weight: 500;
 }
 
 .ms p:hover{
     font-weight: bold;
+    
+}
 
+@keyframes blacked {
+    0%{
+       background-color: rgb(139, 139, 139);
+       color: black;
+    }
+
+    100%{
+        background-color: rgb(24, 23, 23);
+        color: white
+    }
 }
 
 .animationLeftSlide{
@@ -572,8 +588,7 @@ td {
         width: 75%;
     }
     .ms p{
-        padding: 0px 25px;
-        margin: 10px;
+
         font-size: 16px;
 
     }
