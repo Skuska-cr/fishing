@@ -196,8 +196,9 @@ window.addEventListener("scroll", () => {
 
         var navbar = document.querySelector(".navbar");
         var filling = document.querySelector(".choices");
+        console.log("ahojk")
         var head = document.querySelector(".smallHead")
-        filling.style.backgroundColor = "(238, 238, 238)";
+        filling.style.backgroundColor = "rgb(238, 238, 238)";
         if(head != null) filling.removeChild(head)
         filling.classList.remove("smallBarChoices");
 
@@ -228,7 +229,7 @@ window.addEventListener("resize", () => {
         var navbar = document.querySelector(".navbar");
         var filling = document.querySelector(".choices");
         var head = document.querySelector(".smallHead")
-        filling.style.backgroundColor = "(238, 238, 238)";
+        filling.style.backgroundColor = "rgb(238, 238, 238)";
         filling.removeChild(head)
         filling.classList.remove("smallBarChoices");
 
