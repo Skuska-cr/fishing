@@ -202,9 +202,11 @@ nav tr td:hover{
 @keyframes scrolledDown {
     from{
         width: 80%;
+        transform: translateY(120%);
         padding: 0% 0%;
     }
     to{
+        transform: translateY(0);
         width: 100%;       
         
     }
