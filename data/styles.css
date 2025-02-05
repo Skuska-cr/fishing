@@ -26,7 +26,7 @@ nav{
     top: 0;
     background-color: rgba(255, 255, 255, 0.007);
     position: fixed;
-    width: 80%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,7 +44,9 @@ nav .headding{
     text-align: center;
     width: 100%;
     height: 100px;
-    background-color: white;
+    background-color: rgb(238, 238, 238);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 
 }
 
@@ -71,14 +73,24 @@ nav .choices{
     align-items: center;
     text-align: center;
     width: 100%;
-    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom: 2px solid rgb(2, 2, 2);
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    background-color: rgb(238, 238, 238);
+    
+
 }
 
 nav .choices table{
     display: table;
     border-radius: 800px;
-    border-bottom: 2px solid rgb(2, 2, 2);
-    
+    border-top: 2px solid black;
+    margin-bottom: 0px;
+    background-color: rgb(22, 21, 21);
+
 }
 
 nav .choices tr{
@@ -93,7 +105,9 @@ nav .choices td{
     width: 25%;
     text-align: center;
     font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
     font-style: italic;
+    color: white;
 }
 
 nav img{
@@ -101,18 +115,15 @@ nav img{
     min-width: 80px;
     max-width: 80px;
     top: 40%;
-    border-bottom: 2px solid black;
+    border: 6px solid rgb(255, 255, 255);
     border-radius: 500px;
     display: block;
 }
 
-nav tr:hover{
-    background-color: white;
-}
 
 nav tr td:hover{
     cursor: pointer;
-    background-color: rgba(168, 168, 168, 0.219);
+    background-color: rgba(255, 255, 255, 0.219);
 }
 
 /*navbar animation*/
@@ -159,7 +170,7 @@ nav tr td:hover{
     }
     100%{
         transform: rotateX(360deg);
-        top: 50%;
+        top: 40%;
         width: 80px;
         min-width: auto;
         max-width: 15vw;
@@ -286,19 +297,7 @@ th, td {
     padding: 12px;
 }
 
-th {
-    background: #343a40;
-    color: white;
-    text-transform: uppercase;
-}
 
-tr:hover {
-    background: #e9ecef;
-}
-
-td {
-    color: #333;
-}
 
 
 .hamburger {
@@ -562,9 +561,9 @@ td {
 }
 
 .clicked{
-    border-bottom: 2px solid rgb(9, 51, 58);
-    border-left: 2px solid rgb(9, 51, 58);
-    border-right: 2px solid rgb(9, 51, 58);
+    border-bottom: 2px solid rgb(175, 175, 175);
+    border-left: 2px solid rgb(175, 175, 175);
+    border-right: 2px solid rgb(175, 175, 175);
     border-radius: 20px;
 }
 .clicked h3{
@@ -689,7 +688,8 @@ td {
     font-weight: bold;
     width: 90%;
     font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+    
+    font-size: 18px;
 }
 
 .hoverStyle:hover{
