@@ -574,7 +574,7 @@ td {
     .ms p{
         padding: 0px 25px;
         margin: 10px;
-        font-size: 12px;
+        font-size: 16px;
 
     }
     .showList2{
@@ -686,5 +686,5 @@ td {
 
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-content: "CSS Verzia: 1.05"
+content: "CSS Verzia: 1.05 UPDATE: 1"
 }
