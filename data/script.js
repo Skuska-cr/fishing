@@ -1,6 +1,6 @@
 
 window.addEventListener("load", function () {
-    let navbarHeight = document.querySelector("nav").offsetHeight;
+    let navbarHeight = document.querySelector(".choices").offsetHeight;
     document.querySelector(".main").style.marginTop = 0.7*navbarHeight + "px";
 });
 
@@ -191,12 +191,13 @@ window.addEventListener("scroll", () => {
        document.querySelector(".headding").style.display ="block"
         small = 0;
         document.querySelector(".navBarLogo").classList.remove("rotation")
+        document.querySelector(".navBarLogo").classList.remove("upscroll")
         document.querySelector(".navBarLogo").classList.add("backRotation");
+        
         document.querySelector(".navTB").style.display = "table"
 
         var navbar = document.querySelector(".navbar");
         var filling = document.querySelector(".choices");
-        console.log("ahojk")
         var head = document.querySelector(".smallHead")
         filling.style.backgroundColor = "rgb(238, 238, 238)";
         if(head != null) filling.removeChild(head)
@@ -224,6 +225,7 @@ window.addEventListener("resize", () => {
         small = 0;
         document.querySelector(".navBarLogo").classList.remove("rotation")
         document.querySelector(".navBarLogo").classList.add("backRotation");
+        document.querySelector(".navBarLogo").classList.remove("upscroll")
         document.querySelector(".navTB").style.display = "table"
 
         var navbar = document.querySelector(".navbar");
@@ -251,6 +253,7 @@ else{
     var navbar = document.querySelector(".navbar");
     navbar.classList.add("navBarUnscrolled");
     document.querySelector(".navBarLogo").classList.add("backRotation");
+    document.querySelector(".navBarLogo").classList.remove("upscroll")
 }
 
 var manus = document.querySelectorAll(".tdRoll");
@@ -303,8 +306,52 @@ manus.forEach(m => {
 
     });
 
+});
 
-   
-});  
+document.querySelector(".main").addEventListener("click", () => {
+    document.querySelectorAll(".clickedDiv").forEach(el => {
+        el.classList.remove("clickedDiv");
+        el.classList.add("unClickedDiv");
+        el.innerHTML = ""
+    });
+    document.querySelectorAll(".tdRoll").forEach(m => {
+        m.classList.remove("clicked");
+    });
+})
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.05"
+let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+let scrollTimer;
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    let navbar = document.querySelector(".smallBarChoices");
+
+    if (currentScroll < lastScrollTop) {
+        if (navbar != null){
+            navbar.classList.remove("downscroll");
+            navbar.classList.add("upscroll");
+        }
+    clearTimeout(scrollTimer);
+
+    if(navbar != null){
+        scrollTimer = setTimeout(() => {
+            
+            navbar.classList.remove("upscroll");
+            navbar.classList.add("downscroll");
+        }, 350);
+
+    }
+
+    }
+    else{
+        if (navbar != null){
+            navbar.classList.remove("upscroll");
+            navbar.classList.remove("downscroll");
+        }
+
+    }
+
+    lastScrollTop = currentScroll;
+});
+
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.06"
