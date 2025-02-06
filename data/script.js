@@ -1,7 +1,7 @@
 
 window.addEventListener("load", function () {
     let navbarHeight = document.querySelector(".choices").offsetHeight;
-    document.querySelector(".main").style.marginTop = 0.7*navbarHeight + "px";
+    document.querySelector(".main").style.marginTop = 0.9*navbarHeight + document.querySelector(".headding").offsetHeight + "px";
 });
 
 function copy(element){
@@ -354,4 +354,4 @@ window.addEventListener("scroll", function() {
     lastScrollTop = currentScroll;
 });
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.06"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.1"
