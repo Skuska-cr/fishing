@@ -32,7 +32,7 @@ nav{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 20px;
+    
 }
 
 nav .headding{
@@ -99,7 +99,6 @@ nav .choices td{
     text-align: center;
     display: table-cell;
     width: 25%;
-    text-align: center;
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;
     font-style: italic;
@@ -287,7 +286,6 @@ table {
     margin: 20px 0;
     font-size: 18px;
     text-align: left;
-    border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
