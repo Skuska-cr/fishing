@@ -52,13 +52,14 @@ nav .headding{
 
 h3{
     font-family: "Times New Roman", Times, serif;
-    font-style:oblique;
+    font-style: oblique;
     font-weight: bold;
 }
 
 nav .headding h2{
     margin: 0px 20px;
     margin-top: 5px;
+    color: rgb(0, 0, 0);
 }
 nav .headding h3{
     bottom: 0;
@@ -118,6 +119,7 @@ nav img{
     border: 6px solid rgb(255, 255, 255);
     border-radius: 500px;
     display: block;
+
 }
 
 
@@ -701,7 +703,41 @@ th, td {
     border-bottom: 1px solid white;
 }
 
+.upscroll{
+    
+    animation: Upscrl 0.5s forwards;
+}
+
+@keyframes Upscrl {
+    from{
+        min-height: 70px;
+    }
+    to{
+        min-height: 40px;
+        max-height: 40px;
+    }
+}
+
+.downscroll{
+    
+    animation: Downscrl 0.5s forwards;
+}
+
+@keyframes Downscrl {
+    from{
+        min-height: 40px;
+        max-height: 40px;
+    }
+    to{
+        min-height: 70px;
+        max-height: 70px;
+    }
+}
+
+
+
+
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-content: "CSS Verzia: 1.05 "
+content: "CSS Verzia: 1.06"
 }
