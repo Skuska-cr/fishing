@@ -454,8 +454,12 @@ th, td {
 }
 
 .mainPagepicture{
-    width: 60%;
-    min-width: 400px;
+    background-image: linear-gradient(rgba(1, 39, 44, 0.514), rgba(0, 0, 0, 0.459)),url("images/mainpicture.jpg");
+    background-size: cover; /* Ensures it covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    width: 70%;
+    min-width: 900px;
     height: 600px;
     display: flex;
     justify-content: center;
@@ -463,8 +467,10 @@ th, td {
     text-align: center;
     border: 2px solid black;
     border-radius: 20px;
-    
+}
 
+.mainPagepicture h2{
+    color: rgb(106, 206, 236);
 }
 
 .main{
@@ -767,7 +773,6 @@ footer{
     justify-content: space-between;
     width: 80%;
     flex-direction: row;
-    border: 1px solid rgb(255, 0, 0);
     min-height: 100px;
 }
 
@@ -777,7 +782,6 @@ footer{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid rgb(255, 0, 179);
     min-height: 100px;
     min-width: 25%;
     max-width: 25%;
@@ -807,8 +811,18 @@ footer{
     }
 }
 
+.mainNameDiv{
+    width: 400px;
+    max-width: 80%;
+    background-color: rgba(92, 92, 92, 0.137);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.397);
+    border: 3px solid black;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+}
 
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-content: "CSS Verzia: 1.1"
+content: "CSS Verzia: 2.0"
 }
