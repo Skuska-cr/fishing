@@ -180,7 +180,7 @@ function smallNavBar(s){
 }
 var small = 0;
 window.addEventListener("scroll", () => {
-    if (window.scrollY >= 400 && window.innerWidth >= 1200) {
+    if (window.scrollY >= 100 && window.innerWidth >= 1200) {
         if(small == 0){
             small = 1;
             smallNavBar(0);
@@ -188,6 +188,9 @@ window.addEventListener("scroll", () => {
         
     }
     else if(window.innerWidth > 1200){
+        if(document.querySelector(".upscroll") != null){
+            document.querySelector(".upscroll").classList.remove("upscroll")
+        }
        document.querySelector(".headding").style.display ="block"
         small = 0;
         document.querySelector(".navBarLogo").classList.remove("rotation")
@@ -354,4 +357,4 @@ window.addEventListener("scroll", function() {
     lastScrollTop = currentScroll;
 });
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 1.1"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 2.0"
