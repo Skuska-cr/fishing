@@ -454,6 +454,7 @@ th, td {
     width: 100%;
     min-width: 900px;
     height: 700px;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
