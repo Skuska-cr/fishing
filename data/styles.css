@@ -829,6 +829,7 @@ footer{
     align-items: center;
     flex-direction: column;
     font-size: large;
+    margin: 20px 0px;
 }
 
 .newsBlock p{
@@ -842,11 +843,9 @@ footer{
 @keyframes downAnimation {
     from{
         transform: translateY(-30%);
-        margin: 0px 0px;
     }
     to{
         transform: translateY(0%);
-        margin: 20px 0px;
     }
 }
 
@@ -857,11 +856,9 @@ footer{
  @keyframes upAnimation {
      from{
          transform: translateY(0%);
-         margin: 20px 0px;
      }
      to{
         transform: translateY(-30%);
-        margin: 0px 0px;
      }
  }
 
@@ -896,22 +893,21 @@ footer{
     }
     @keyframes downAnimation {
         from{
-            transform: translateY(-10%);
-            margin: 0px 0px;
+            transform: translateY(-20%);
         }
         to{
             transform: translateY(0%);
-            margin: 20px 0px;
+            
         }
     }
     @keyframes upAnimation {
         from{
             transform: translateY(0%);
-            margin: 20px 0px;
+            
         }
         to{
-           transform: translateY(-10%);
-           margin: 0px 0px;
+           transform: translateY(-20%);
+           
         }
     }
 }
