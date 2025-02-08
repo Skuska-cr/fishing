@@ -768,7 +768,7 @@ footer{
 .footerDiv{
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    width: 70%;
     flex-direction: row;
     min-height: 100px;
 }
@@ -998,25 +998,153 @@ footer{
 
 
 
+.news-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    transition: transform 0.2s ease-in-out;
+}
 
- @media screen and (max-width: 768px) {
+.news-card:hover {
+    transform: scale(1.02);
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+
+.news-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.news-content {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.read-more {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    background: #0056b3;
+}
+
+.contact-form {
+    background: #1b1b1b00;
+    padding: 15px 30px; /* Zmenšený padding = menej výšky */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0);
+    width: 50vw; /* Nastavenie šírky na 50% obrazovky */
+    max-width: 80%; /* Maximálna šírka, aby to nebolo extrémne */
+    margin-left: auto; /* Posunie formulár viac doprava */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Efekt pri fokusovaní inputov */
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Tlačidlo Odoslať */
+button {
+    width: 100%;
+    max-height: 1%;
+    background: gray;
+    color: white;
+    border: none;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: black;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
 
     .footerDiv{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0px;
+        width: 100%;
     }
     .footerSection{
         max-width: 100%;
         min-width: 100%;
+        padding: 0px;
         padding-top: 50px;
+        margin: 0px;
         justify-content: center;
         flex-direction: column;
     }
     .footerSection p{
         margin: 0px;
         margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+    .contact-form{
+        padding: 0px;
+    }
+
 
     .container{
         width: 100%;
@@ -1058,120 +1186,14 @@ footer{
     .mainPagepicture{
         height: 90vh;
     }
+    form{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+        width: 80%;
+    }
+    
 }
-
-
-.news-card {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 450px;
-    transition: transform 0.2s ease-in-out;
-}
-
-.news-card:hover {
-    transform: scale(1.02);
-}
-
-.news-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-}
-
-/* h3 {
-    font-weight: bold;
-    font-size: 18px;
-    margin: 0;
-} */
-
-.news-date {
-    font-size: 12px;
-    color: #777;
-}
-
-.news-content {
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5;
-}
-
-.read-more {
-    background: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    display: block;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 14px;
-}
-
-.read-more:hover {
-    background: #0056b3;
-}
-
-.contact-form {
-    background: #1b1b1b;
-    padding: 15px 30px; /* Zmenšený padding = menej výšky */
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-    width: 50vw; /* Nastavenie šírky na 50% obrazovky */
-    max-width: 80%; /* Maximálna šírka, aby to nebolo extrémne */
-    margin-left: auto; /* Posunie formulár viac doprava */
-}
-
-label {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-/* Efekt pri fokusovaní inputov */
-input:focus, textarea:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-/* Tlačidlo Odoslať */
-button {
-    width: 106%;
-    height: 20;
-    background: gray;
-    color: white;
-    border: none;
-    padding: 50px;
-    margin-top: 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: black;
-}
-
-
-
-
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
     content: "CSS Verzia: 2.02"
