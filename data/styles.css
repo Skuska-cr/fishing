@@ -926,6 +926,12 @@ footer{
     
 }
 
+.inNewsBlock{
+
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+}
 
 .newsBlock p{
     padding: 10px;
@@ -1028,10 +1034,7 @@ footer{
         display: none;
     }
 
-    .newsBlock{
-        width: 90%;
-        margin-top: 15px;
-    }
+
     @keyframes downAnimation {
         from{
             transform: translateY(-20%);
