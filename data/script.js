@@ -366,4 +366,6 @@ if (window.innerWidth < 768){
     tresh = 0.1;
 }
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 2.02"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 2.03"
+
+
