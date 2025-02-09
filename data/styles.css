@@ -768,7 +768,7 @@ footer{
 .footerDiv{
     display: flex;
     justify-content: space-between;
-    width: 70%;
+    width: 90%;
     flex-direction: row;
     min-height: 100px;
 }
@@ -780,8 +780,8 @@ footer{
     justify-content: center;
     flex-direction: column;
     min-height: 100px;
-    min-width: 50%;
-    max-width: 50%;
+    min-width: 30%;
+    max-width: 30%;
 }
 .footerSection p{
     margin: 0px;
@@ -807,9 +807,12 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
     width: 100%;
     padding: 2%;
     z-index: 1;
+    transform: translateX(25%);
+    left: 0;
     align-items: center;
 }
 
@@ -818,11 +821,13 @@ footer{
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
-    justify-content: center;
     margin: 20px;
     width: 90%;
     z-index: 0;
+    height: 400px;
     align-items: center;
+    position: relative;
+    margin-bottom: 0px;
 }
 
 .arrow{
@@ -871,11 +876,12 @@ footer{
 /* Wrapper to control stacking */
 .container {
     position: relative; /* Needed for absolute positioning */
-    display: inline-block;
     display: flex;
-    width: 30%;
     height: 300px;
     margin-bottom: 25px;
+    margin-left: 60px;
+    min-width: 400px;
+
 }
 
 /* Blue Layer (Bottom-most, should be behind everything) */
@@ -883,8 +889,8 @@ footer{
     content: "";
     position: absolute;
     top: -10px;  /* Shift down */
-    left: 10px; /* Shift right */
-    width: 100%;
+    left: 15px; /* Shift right */
+    min-width: 100%;
     height: 100%;
     border: 1px solid black;
     border-radius: 20px;
@@ -898,8 +904,8 @@ footer{
     content: "";
     position: absolute;
     top: -5px;  /* Shift slightly */
-    left: 5px;
-    width: 100%;
+    left: 10px;
+    min-width: 100%;
     height: 100%;
     border: 1px solid black;
     border-radius: 20px;
@@ -923,14 +929,48 @@ footer{
     background-color: rgba(255, 255, 255, 0.993);
     animation: downAnimationBlock 1s forwards;
     margin-top: 0px;
-    
+    transform: translateY(250px);
+
+}
+
+.goIn{
+    animation: goInAnimation 1s forwards;
+}
+
+@keyframes goInAnimation {
+    from{
+        max-width: 0px; 
+        max-height: 30px; 
+        opacity: 0%; 
+    }
+    to{
+
+        max-width: 400px; 
+        max-height: 350px;
+        opacity: 100%;   }
+}
+
+.goOut{
+    animation: goOutAnimation 1s forwards;
+}
+
+@keyframes goOutAnimation {
+    from{
+        max-width: 400px; 
+        max-height: 350px;
+        opacity: 100%;    
+    }
+    to{
+        max-width: 0px; 
+        max-height: 30px; 
+        opacity: 0%;  }
 }
 
 .inNewsBlock{
 
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 100%;
 }
 
 .newsBlock p{
@@ -967,10 +1007,10 @@ footer{
 
 @keyframes downAnimation {
     from{
-        transform: translateY(-30%);
+        transform: translateY(-30%) translateX(5%);
     }
     to{
-        transform: translateY(0%);
+        transform: translateY(0%) translateX(5%);
     }
 }
 
@@ -980,17 +1020,17 @@ footer{
  
  @keyframes upAnimation {
      from{
-         transform: translateY(0%);
+         transform: translateY(0%) translateX(5%);
      }
      to{
-        transform: translateY(-30%);
+        transform: translateY(-30%) translateX(5%);
      }
  }
 
  .bookmark {
     display: flex;
     min-height: 150px;
-    min-width: 50%;
+    min-width: 30%;
     background-image: url("images/bookmark.png");
     background-repeat: no-repeat;
  
@@ -1147,21 +1187,21 @@ form{
 
 
     .container{
-        width: 100%;
-        margin: 40px 0px;
-    }
-    .mainNews{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        position: relative; /* Needed for absolute positioning */
-        display: inline-block;
-    }
-    .arrow{
-        display: none;
+        width: 80%;
+        min-width: 80%;
+        max-width: 80%;
+        transform: translateX(-10%);
     }
 
+    .container p{
+        font-size: 90%;
+        font-style: normal;
+    }
+
+    .mainNews{
+        width: 100%;
+        transform: translateX(0px);
+    }
 
     @keyframes downAnimation {
         from{
@@ -1196,6 +1236,6 @@ form{
 }
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-    content: "CSS Verzia: 2.02"
+    content: "CSS Verzia: 2.03"
     }
     
