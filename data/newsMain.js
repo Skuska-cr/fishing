@@ -1,4 +1,8 @@
 const targetDiv = document.querySelector(".mainNewsMain");
+var loader = 0;
+const LoaderBar = document.querySelector(".newsLoader");
+var maxLoad = 0;
+var Alrviewed = 1
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -33,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     function calculateScrollStep(containerSelector, blockSelector) {
-        console.log(document.querySelector(".container").offsetWidth);
         return 60 + document.querySelector(".container").offsetWidth;
 
     }
@@ -45,11 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            maxLoad = Object.values(data).length;
+            console.log(maxLoad)
             for (let entry of Object.values(data)) {
                 document.querySelector(".mainNews").appendChild(createNewsWindow(entry));
             }
+
             const newsBlocks = document.querySelectorAll(".container");
-    
+           
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.intersectionRatio === 1) {
@@ -61,11 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
             }, { root: newsContainer, threshold: 1 }); 
-        
+
             newsBlocks.forEach(block => {
                 observer.observe(block);
             });
-
+            
             var scrollStep = calculateScrollStep(".mainNews", ".container");
             window.addEventListener("resize", () => {
                 scrollStep = calculateScrollStep(".mainNews", ".container");
@@ -74,6 +80,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const maxScroll = newsContainer.scrollWidth - newsContainer.clientWidth;
                 if (scrollAmount < maxScroll) {
                     scrollAmount += scrollStep;
+                    Alrviewed += 1;
+                    loader = calculateLoader();
+                    LoaderBar.style.width = `${loader*1}%`;
                     newsContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
                 }
             });
@@ -81,9 +90,17 @@ document.addEventListener("DOMContentLoaded", function () {
             prevBtn.addEventListener("click", function () {
                 if (scrollAmount > 0) {
                     scrollAmount -= scrollStep;
+                    Alrviewed -= 1;
+                    loader = calculateLoader();
+                    LoaderBar.style.width = `${loader*1}%`;
                     newsContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
                 }
             });
+            setTimeout(() => {
+                Alrviewed = document.querySelectorAll(".goIn").length;
+                loader = calculateLoader();
+                LoaderBar.style.width = `${loader}%`;
+            }, 200);
         })
         .catch(error => console.error("Error loading JSON:", error));
 
@@ -123,10 +140,8 @@ function createNewsWindow(entry) {
     newsBlock.appendChild(text);
     container.appendChild(newsBlock);
     container.addEventListener("click", () => {
-        if (window.innerWidth > 768){
-            showNews(entry);
+        showNews(entry);
 
-        }
     });
     return container;
 }
@@ -146,11 +161,13 @@ function showNews(content){
     btn.style.borderRadius = "25px";
     btn.style.cursor = "pointer";
     btn.style.color = "blue"
-    
-    container.appendChild(head);
-    container.appendChild(date);
-    container.appendChild(text);
-    container.appendChild(btn);
+    setTimeout(() => {
+        container.appendChild(head);
+        container.appendChild(date);
+        container.appendChild(text);
+        container.appendChild(btn);
+    },500)
+
     container.classList.add("containerRollIn");
     btn.addEventListener("click", () => {
         container.innerHTML = "";
@@ -166,3 +183,10 @@ document.querySelector(".mainNewsImg").addEventListener("click", () => {
 document.querySelector(".aboutUsButtonMainPage").addEventListener("click", () => {
     window.location.href = "o-nas-vybor.html";
 })
+
+function calculateLoader(){
+    console.log(maxLoad, Alrviewed)
+    loader =  Alrviewed/maxLoad * 100;
+    return loader;
+}
+
