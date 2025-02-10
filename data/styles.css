@@ -978,6 +978,7 @@ footer{
     display: flex;
     flex-direction: row;
     width: 100%;
+    max-height: 50%;
 }
 
 .newsBlock p{
