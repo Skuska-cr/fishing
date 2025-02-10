@@ -54,13 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 entries.forEach(entry => {
                     if (entry.intersectionRatio === 1) {
                         entry.target.classList.remove("goOut")
-                        entry.target.classList.add("goIn") // Fully visible
+                        entry.target.classList.add("goIn") 
                     } else {
-                        entry.target.classList.remove("goIn")  // Not fully visible
+                        entry.target.classList.remove("goIn")  
                         entry.target.classList.add("goOut")
                     }
                 });
-            }, { root: newsContainer, threshold: 1 }); // `threshold: 1` ensures FULL visibility is required
+            }, { root: newsContainer, threshold: 1 }); 
         
             newsBlocks.forEach(block => {
                 observer.observe(block);
@@ -122,6 +122,47 @@ function createNewsWindow(entry) {
     newsBlock.appendChild(inNewsBlock);
     newsBlock.appendChild(text);
     container.appendChild(newsBlock);
+    container.addEventListener("click", () => {
+        if (window.innerWidth > 768){
+            showNews(entry);
 
+        }
+    });
     return container;
 }
+
+
+function showNews(content){
+    var container = document.querySelector(".showNewsContent");
+    var head = document.createElement("h2");
+    var date = document.createElement("p");
+    var text = document.createElement("p");
+    var btn = document.createElement("p");
+    head.innerHTML = content.name;
+    date.innerHTML = content.date;
+    text.innerHTML = content.text;
+    btn.innerHTML = "Zavrieť"
+    btn.style.padding = "25px"
+    btn.style.borderRadius = "25px";
+    btn.style.cursor = "pointer";
+    btn.style.color = "blue"
+    
+    container.appendChild(head);
+    container.appendChild(date);
+    container.appendChild(text);
+    container.appendChild(btn);
+    container.classList.add("containerRollIn");
+    btn.addEventListener("click", () => {
+        container.innerHTML = "";
+        container.classList.remove("containerRollIn");
+    });
+
+}
+
+document.querySelector(".mainNewsImg").addEventListener("click", () => {
+    window.location.href = "novinky.html";
+})
+
+document.querySelector(".aboutUsButtonMainPage").addEventListener("click", () => {
+    window.location.href = "o-nas-vybor.html";
+})
