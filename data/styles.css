@@ -850,7 +850,6 @@ footer{
     background-color: rgb(255, 255, 255);
     display: flex;
     flex-direction: row;
-    margin: 20px;
     width: 90%;
     z-index: 0;
     min-height: 400px;
@@ -1201,9 +1200,7 @@ form{
     
 }
 .informationMainPage p{
-    
-    font-size: 120%;
-
+    font-size: 150%;
 }
 
 .mainNewsImg{
@@ -1332,11 +1329,9 @@ form{
         font-style: normal;
     }
 
-    .mainNews{
+    .mainNewsMain{
         width: 100%;
-        transform: translateX(0px);
     }
-
 
 
     form{
@@ -1350,27 +1345,36 @@ form{
         max-width: 80vw;
     }
     
-@keyframes rollInContNews {
-    from{
-        min-width: 0%;
-        padding: 25px;
+    @keyframes rollInContNews {
+        from{
+            min-width: 0%;
+            padding: 25px;
 
+        }
+        to{
+            min-width: 85%;
+            padding: 25px;
+
+        }
     }
-    to{
-        min-width: 85%;
-        padding: 25px;
 
+    .informationMainPage{
+        width: 90%;
+        padding: 2%;
     }
-}
 
-.informationMainPage{
-    width: 90%;
-    padding: 2%;
-}
+    .informationMainPage p{
+        font-size: 1.2rem;
+    }
 
-.informationMainPage p{
-    font-size: 1.2rem;
-}
+    @keyframes downAnimation {
+        from{
+            transform: translateY(-20%) translateX(0%);
+        }
+        to{
+            transform: translateY(0%) translateX(0%);
+        }
+    }
 }
 
 
