@@ -58,9 +58,10 @@ function addPage(pg,p,main){
         });
         var every = document.querySelectorAll(".ms");
         every.forEach(element => {
+            element.classList.remove("animationLeftSlide");
+            element.classList.add("animationUnSlide");
             if (element != div){
-                element.classList.remove("animationLeftSlide");
-                 element.classList.add("animationUnSlide");
+
                  element.classList.remove("clicked")
 
                 }
