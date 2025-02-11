@@ -1,371 +1,1410 @@
 
-window.addEventListener("load", function () {
-    let navbarHeight = document.querySelector(".choices").offsetHeight;
-    document.querySelector(".main").style.marginTop = 0.9*navbarHeight + document.querySelector(".headding").offsetHeight + "px";
-});
 
-function copy(element){
-    let textToCopy = element.innerText;
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        alert("Skopírované do schránky: " + textToCopy);
-    }).catch(err => {
-        console.error("Failed to copy: ", err);
-    });
+body{
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    margin: 0px;
+    padding: 0px;
 }
 
-var pages = {
-    "O organizácií": ["MO SRZ Medzilaborce", "O nás/výbor", "Revíry MO SRZ Medzilaborce"],
-    "Aktivity a podujatia": ["Zarybnenie/úlovky", "Šírava Big 6 Challenge 2024", "Brigádnická činnosť"],
-    "Administratíva a legislatíva": ["Poplatky/PnR/Zápisné", "Legislatíva", "Prihlášky/žiadosti"],
-    "Komunikácia a informácie": ["Novinky", "Fotogaléria", "Otázky a odpovede"]
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(20, 20, 20); /* Background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
 }
 
-function createSlug(text) {
-    return text
-        .toLowerCase() // Convert to lowercase
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents
-        .replace(/[^a-z0-9]+/g, "-") // Replace special characters with "-"
-        .replace(/^-+|-+$/g, ""); // Remove leading/trailing "-"
+/* Hide loading screen after page loads */
+#loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
 }
 
-function addPage(pg,p,main){
-    var maindiv = document.createElement("div");
-    var div = document.createElement("div");
-    maindiv.classList.add("mms");
-    div.classList.add("ms");
-    var name = document.createElement("h3");
-    name.innerHTML = pg
-    maindiv.appendChild(name);
-
-    p.forEach(a => {
-        var x = document.createElement("p");
-        x.innerHTML = a 
-        div.appendChild(x)
-        x.addEventListener("click" ,() => {
-            x.style.cursor = "pointer";
-            window.location.href = `${createSlug(a)}.html`;
-        });
-    })
-
-    maindiv.addEventListener("click", (e) => {
-        e.stopPropagation();
-        var everymss = document.querySelectorAll(".mms");
-        everymss.forEach(element => {
-            if (element != maindiv){
-                 element.classList.remove("clicked")
-                
-                }
-        });
-        var every = document.querySelectorAll(".ms");
-        every.forEach(element => {
-            if (element != div){
-                element.classList.remove("animationLeftSlide");
-                 element.classList.add("animationUnSlide");
-                 element.classList.remove("clicked")
-
-                }
-        });
-        if (!div.classList.contains("clicked")){
-            maindiv.appendChild(div)
-            maindiv.classList.add("clicked")
-            div.classList.add("clicked")
-            div.classList.remove("animationUnSlide");
-            div.classList.add("animationLeftSlide");
-            
-        }
-        else{
-            div.classList.remove("clicked")
-            maindiv.classList.remove("clicked")
-            div.classList.remove("animationLeftSlide");
-            div.classList.add("animationUnSlide");
-            setTimeout(() =>{
-                maindiv.removeChild(div)
-            }, 300)
-        }
-
-
-    })
-
-    return maindiv
+/* Loading animation (spinner) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 15px solid #ccc;
+    border-top: 15px solid #238ed6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-function displayList(hamburger,displayed,menudiv,s){
-    if(!displayed){
-        if(s == 1){
-            menudiv.classList.remove("removeList2")
-            menudiv.classList.add("showList2")
-            
-        }
-        menudiv.classList.remove("removeList")
-        menudiv.classList.add("showList")
-        setTimeout(()=>{
-            for ([pg,p] of Object.entries(pages)){
-                menudiv.appendChild(addPage(pg,p,menudiv))
-            }
-        },300);
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-    }
-    else{
-        menudiv.innerHTML = ""
-        if(s == 1){
-            menudiv.classList.remove("removeList2")
-            menudiv.classList.add("removeList2")
-        }
-        else{
-            menudiv.classList.remove("removeList")
-            menudiv.classList.add("removeList")
-        }
+/* navbar */
 
+/* navbar positioning*/
+nav{
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.007);
+    position: fixed;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1920px;
+    z-index: 100;
+}
 
-    }
+nav .headding{
+    margin: 0px 20px;
+    display: block;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(238, 238, 238);
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 
 }
 
-function smallNavBar(s){
-    document.querySelectorAll(".clickedDiv").forEach(el => {
-        el.classList.remove("clickedDiv");
-        el.classList.add("unClickedDiv");
-        el.innerHTML = ""
-    });
-    document.querySelectorAll(".tdRoll").forEach(n => {
-        n.classList.remove("clicked")
-            
-    })
-    document.querySelector(".navBarLogo").classList.remove("navBarbackRotation");
-    document.querySelector(".navBarLogo").classList.add("rotation")
-    document.querySelector(".navTB").style.display = "none"
-    document.querySelector(".headding").style.display ="none"
-    var navbar = document.querySelector(".navbar");
-    var filling = document.querySelector(".choices");
-    filling.style.backgroundColor = "rgb(20, 20, 20)";
-    filling.classList.add("smallBarChoices");
+h3{
+    font-weight: bold;
+}
 
-    var head = document.createElement("h3");
-    head.classList.add("smallHead")
-    head.classList.add("remove")
-    head.innerHTML = "MO SRZ Medzilaborce"
+nav .headding h2{
+    margin: 0px 20px;
+    margin-top: 5px;
+}
+nav .headding h3{
+    bottom: 0;
+    margin: 0px 20px;
+}
+
+nav .choices{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    background-color: rgb(238, 238, 238);
     
-    filling.appendChild(head)
 
-    var borders = document.createElement("div");
-    borders.classList.add("designlines")
-    borders.classList.add("remove")
-    filling.appendChild(borders)
+}
 
-    var hamburger = document.createElement("div");
-    hamburger.classList.add("remove")
-    hamburger.classList.add("hamburger");
-    hamburger.classList.add("hamb")
-    hamburger.innerHTML = "&#9776;"; 
-    filling.appendChild(hamburger);
-    var displayed = false
-    var menudiv = document.createElement("div");
-    menudiv.classList.add("landscapeResolutionAdd")
-    hamburger.appendChild(menudiv)
-    document.querySelector(".hamb").addEventListener("click", () => {
+nav .choices table{
+    display: table;
+    border-top: 2px solid black;
+    margin-bottom: 0px;
+    background-color: rgb(22, 21, 21);
 
-        displayList(hamburger,displayed,menudiv,s);
-        displayed = !displayed
+}
 
-        document.querySelector(".main").addEventListener("click", () => {
-            displayList(hamburger,true,menudiv);
-            displayed = false
-        })
+nav .choices tr{
+    width: 100%;
+}
 
-    });
+nav .choices td{
+    background-color: #33333300;
+    align-items: center;
+    text-align: center;
+    display: table-cell;
+    width: 25%;
+    
+    font-size: 20px;
+    color: white;
+}
 
-    navbar.classList.remove("navBarUnscrolled");
-    navbar.classList.add("navBarScrolled");
+nav img{
+    position: absolute;
+    min-width: 80px;
+    max-width: 80px;
+    top: 40%;
+    border: 6px solid rgb(255, 255, 255);
+    border-radius: 500px;
+    display: block;
+
+}
+
+
+nav tr td:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.219);
+}
+
+/*navbar animation*/
+
+.backRotation{
+    animation: navBarbackRotation 1s forwards; /* Adjusted duration */
+    transform-style: preserve-3d; /* Ensures 3D rotation effect */
+
+}
+
+@keyframes navBarbackRotation {
+    from{
+        transform: rotateX(0deg);
+        top: 70%;
+        min-width: 60px;
+        max-width: 60px;
+    }
+    to{
+        transform: rotateX(-360deg);
+        top: 40%;
+        min-width: 80px;
+        max-width: 80px;
+    }
+}
+
+.rotation{
+    animation: navBarRotation 1s forwards; /* Adjusted duration */
+    transform-style: preserve-3d; /* Ensures 3D rotation effect */
+    top: 40%;
     
 }
-var small = 0;
-window.addEventListener("scroll", () => {
-    if (window.scrollY >= 100 && window.innerWidth >= 1200) {
-        if(small == 0){
-            small = 1;
-            smallNavBar(0);
-        }
+
+@keyframes navBarRotation {
+    0%{
+        transform: rotateX(0deg);
+        top: 40%;
+        min-width: auto;
+        max-width: auto;
+        width: 80px;
+    }
+    50%{
+        transform: rotateX(180deg);
+        width: 40px;
+    }
+    100%{
+        transform: rotateX(360deg);
+        top: 40%;
+        width: 80px;
+        min-width: auto;
+        max-width: 15vw;
+    }
+}
+
+.navBarUnscrolled{
+    animation: scrolledUp 1s forwards;
+
+}
+
+@keyframes scrolledUp {
+    from{
+        transform: translateY(-55%);
+
+        width: 100%;
+    }
+    to{
+        transform: translateY(0);
+        width: 100%;
+    }
+}
+
+.navBarScrolled{
+    animation: scrolledDown 1s forwards;
+}
+
+
+@keyframes scrolledDown {
+    from{
+        width: 100%;
+        transform: translateY(120%);
+        padding: 0% 0%;
+    }
+    to{
+        transform: translateY(0);
+        width: 100%;       
         
     }
-    else if(window.innerWidth > 1200){
-        if(document.querySelector(".upscroll") != null){
-            document.querySelector(".upscroll").classList.remove("upscroll")
-        }
-       document.querySelector(".headding").style.display ="block"
-        small = 0;
-        document.querySelector(".navBarLogo").classList.remove("rotation")
-        document.querySelector(".navBarLogo").classList.remove("upscroll")
-        document.querySelector(".navBarLogo").classList.add("backRotation");
+}
+
+.designlines{
+    left: 50%;
+    right: 50%;
+    width: 50px;
+    height: 200px;
+    position: absolute;
+    transform: translateX(-25px) translateY(0px);
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    animation: rollOut 1s forwards;
+}
+
+@keyframes rollOut {
+    from{
+        height: 0px;
+    }
+    to{
+        transform: translateX(-25px) translateY(-75px);
+        height: 200px;
+    }
+}
+
+.smallBarChoices {
+    box-shadow: -2px 1px 10px rgb(12, 12, 12);
+    min-height: 70px;
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(167, 167, 167);
+    width: 100%;
+    
+}
+
+/* /navbar */
+
+
+h1{
+    font-weight: 1200;
+    font-size: 35px;
+    color: rgb(1, 73, 73);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.925);
+}
+
+
+h2{
+    font-weight: 1200;
+    font-size: 30px;
+    color: rgb(1, 73, 73)
+}
+
+
+.font{
+    font-size: large;
+}
+
+.fontT{
+    font-size: large;
+}
+
+.fontD{
+    font-size: x-large;
+    color: red;
+}
+
+.copy-tooltip {
+    visibility: hidden;
+    position: absolute;
+    transform: translateY(-25px) translateX(15%);
+    background-color: #33333367;
+}
+.cpy:hover .copy-tooltip  {
+    visibility: visible;
+    opacity: 1;
+}
+
+table {
+    width: 100%;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+}
+
+
+
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row ;
+    padding: 0px 2%;
+}
+
+.showList {
+    z-index: 200;
+    width: 50px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(228, 228, 228);
+    animation: displayList 0.5s forwards;
+    position: fixed; /* Keeps it relative to the viewport */
+    z-index: 1000; /* Keeps it above other elements */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts the element to be centered */
+}
+
+@keyframes displayList {
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+    }
+
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%;
+        min-width: 400px; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+    }
+}
+
+
+.showList2{
+    width: 50px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px black;
+    background-color: rgb(228, 228, 228);
+    animation: displayList2 0.5s forwards;
+    position: fixed; /* Keeps it relative to the viewport */
+    z-index: 1000; /* Keeps it above other elements */
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Adjusts the element to be centered */
+    
+}
+
+@keyframes displayList2 {
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+    }
+
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+    }
+}
+
+.removeList{
+    
+    animation: hideList 0.5s forwards;
+    position: absolute;
+    z-index: -1;
+}
+
+@keyframes hideList {
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+
+    }
+
+    100% {
+
+        left: 50%;
+        transform: translateX(-50%);
+        width: 25%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+
+    }
+}
+.removeList2{
+    
+    animation: hideList2 0.5s forwards;
+    position: absolute;
+    z-index: -1;
+}
+
+@keyframes hideList2 {
+    0% {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Final width */
+        height: 90vh; /* Almost full screen height */
+        opacity: 1; /* Fully visible */
+        z-index: -1;
+
+    }
+
+    100% {
+
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Start small */
+        height: 0vh; /* Start with zero height */
+        opacity: 0; /* Hidden initially */
+        z-index: -1;
+
+    }
+}
+
+.mainPagepicture{
+    background-image: linear-gradient(rgba(1, 39, 44, 0.514), rgba(0, 0, 0, 0.459)),url("images/mainpicture.jpg");
+    background-size: cover; /* Ensures it covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat;
+    width: 100%;
+    min-width: 900px;
+    height: 650px;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.mainPagepicture h2{
+    color: rgb(194, 233, 243);
+}
+
+.main{
+    border-radius: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1920px;
+    
+}
+
+.ms{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 90%;
+}
+.mms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 25px;
+    font-size: 15px;
+    overflow: hidden;
+    width: 90%;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    }
+
+.mms.clicked{
+    border-right: 0px;
+    border-left: 0px;
+}
+
+.mms:not(.clicked):hover {
+    background-color: rgba(31, 30, 30, 0.452);
+    border-radius: 20px;
+    animation: blacked 0.5s forwards;
+}
+
+.ms p{
+
+    font-size: 17px;
+    width: 90%;
+    border-radius: -20px;
+    font-weight: 500;
+}
+
+.ms p:hover{
+    font-weight: bold;
+    
+}
+
+@keyframes blacked {
+    0%{
+       background-color: rgb(139, 139, 139);
+       color: black;
+    }
+
+    100%{
+        background-color: rgb(24, 23, 23);
+        color: white
+    }
+}
+
+.animationLeftSlide{
+    animation: lss 0.5s forwards
+}
+
+@keyframes lss {
+    0%{
+        height: 0;
+    }
+
+    100%{
+        height: 200px;
+
+    }
+}
+.animationUnSlide{
+    animation: uss 0.5s forwards
+}
+
+
+@keyframes uss {
+    0%{
+        height: 200px;
+    }
+
+    99%{
         
-        document.querySelector(".navTB").style.display = "table"
+        height: 0px;
+    }
+    100%{
+        display: none;
+    }
+}
 
-        var navbar = document.querySelector(".navbar");
-        var filling = document.querySelector(".choices");
-        var head = document.querySelector(".smallHead")
-        filling.style.backgroundColor = "rgb(238, 238, 238)";
-        if(head != null) filling.removeChild(head)
-        filling.classList.remove("smallBarChoices");
+.clicked{
+    border-bottom: 2px solid rgb(175, 175, 175);
+    border-left: 2px solid rgb(175, 175, 175);
+    border-right: 2px solid rgb(175, 175, 175);
+    border-radius: 20px;
+}
+.clicked h3{
+    border-bottom: 2px solid gray;
+    border-radius: 20px;
+    padding: 20px;
+}
 
-        navbar.classList.remove("navBarScrolled");
-        navbar.classList.add("navBarUnscrolled");
-        var r = document.querySelectorAll(".remove")
-        r.forEach(e => {
-            filling.removeChild(e)
-        });
+@media screen and (max-width: 768px) {
+    .mms{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        margin: 5px;
+        font-size: 13px;
+        overflow: hidden;
+        
+        width: 75%;
     }
-});
+    .ms p{
 
-window.addEventListener("resize", () => {
-    if (window.innerWidth < 768){
-        tresh = 0.1;
+        font-size: 16px;
+
     }
-    else{
-        tresh = 0.5;
+    .showList2{
+        padding-top: 25px;
     }
-    if(window.innerWidth < 1200 && small == 0){
-            small = 1;
-            smallNavBar(0);
-           
-            
+    .headding{
+        max-height: 70px;
     }
-    else if (window.innerWidth >= 1200 && small == 1){
+    .ms{
+        max-height: 50%;
+     }
+    .smallHead{
+        padding: 0px 2%;
+        color: white;
+        
+        font-style: italic;
+        font-weight: bold;
+        text-transform: uppercase; 
+        font-size: 3vw;
+    }
+    .designlines{
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .footerDiv{
+        flex-direction: column;
+    }
+
+    .mainPagepicture{
+        width: 100%;
+        min-width: 0px;
+    }
+}
+
+.Listplaceholder{
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    background-color: rgba(241, 0, 0, 0);
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.Listplaceholder .altor{
+
+    background-color: rgba(20, 20, 20, 0.788);
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.smallHead{
+    padding: 0px 5%;
+    color: white;
+    
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase; /* Optional, makes text uppercase */
+}
+
+.clickedDiv{
+    animation: downss 0.5s forwards;
+    border-top: 4px solid rgb(0, 0, 0);
+    border-bottom: 4px solid rgb(0, 0, 0);
+    display: flex;
+}
+
+@keyframes downss {
+    0%{
+        opacity: 100%;
+        height: 0px;
+    }
+
+    100%{
+        opacity: 100%;
+        height: 150px;
+    }
+}
+
+.unClickedDiv{
+   
+    animation: Upss 0.5s forwards;
+}
+
+@keyframes Upss {
+    0%{
+        height: 150px;
+    }
+
+    99%{
+        opacity: 0%;
+        height: 0px;
+    }
+
+
+}
+
+.hoverStyle{
+    font-weight: bold;
+    width: 90%;
+    
+    margin: 5px;
+    font-size: 18px;
+}
+
+.hoverStyle:hover{
+    cursor: pointer;
+    font-weight: lighter;
+    border-radius: 20px;
+    border-bottom: 1px solid white;
+}
+
+.upscroll{
+    
+    animation: Upscrl 0.5s forwards;
+}
+
+@keyframes Upscrl {
+    from{
+        min-height: 70px;
+    }
+    to{
+        min-height: 40px;
+        max-height: 40px;
+    }
+}
+
+.downscroll{
+    
+    animation: Downscrl 0.5s forwards;
+}
+
+@keyframes Downscrl {
+    from{
+        min-height: 40px;
+        max-height: 40px;
+    }
+    to{
+        min-height: 70px;
+        max-height: 70px;
+    }
+}
+
+footer{
+    color: white;
+    background-color: rgb(20,20,20);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    min-height: 250px;
+    position: static;
+    
+    max-width: 1920px;
+}
+
+.footerDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    flex-direction: row;
+    min-height: 100px;
+}
+
+.footerDiv h2{
+    color: rgb(0, 110, 201);
+}
+
+.footerSection{
+    top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100px;
+    min-width: 50%;
+    max-width: 50%;
+    align-items: center;
+}
+.footerSection p{
+    margin: 0px;
+    margin-top: 5px;
+    font-size: larger;
+}
+
+
+
+.mainNameDiv{
+    width: 400px;
+    max-width: 80%;
+    background-color: rgba(92, 92, 92, 0.137);
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.397);
+    border: 3px solid black;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+
+}
+
+.mainNews{
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 100%;
+    padding: 2%;
+    padding-top: 5%;
+    z-index: 1;
+    transform: translateX(25%);
+    left: 0;
+    align-items: center;
+}
+
+.mainNewsMain{
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    width: 90%;
+    z-index: 0;
+    min-height: 400px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0px;
+}
+
+.arrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    min-height: 50px;
+    max-height: 50px;
+    max-width: 20px;
+    border: 1px solid black;
+    border-radius: 5000px;
+    margin: 0px 20px;
+    font-size: 2.5vh;
+    cursor: pointer;
+    animation: UnArrowHovered 0.5s forwards;
+}
+
+.arrow:hover{
+    animation: ArrowHovered 0.5s forwards;
+}
+
+@keyframes ArrowHovered {
+    0%{
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+    100%{
+        background-color: rgb(0, 0, 0);
+        color: white;
+    }
+}
+
+@keyframes UnArrowHovered {
+    0%{
+        background-color: rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+    }
+    100%{
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+}
+
+/* Wrapper to control stacking */
+.container {
+    position: relative; /* Needed for absolute positioning */
+    display: flex;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 60px;
+    min-width: 400px;
+    cursor: pointer;
+}
+
+/* Blue Layer (Bottom-most, should be behind everything) */
+.container::before {
+    content: "";
+    position: absolute;
+    top: -10px;  /* Shift down */
+    left: 15px; /* Shift right */
+    min-width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(235, 235, 235); /* Light blue */
+    z-index: 1; /* Bottom-most */
+
+}
+
+/* Green Layer (Middle layer, behind `.newsBlock`) */
+.container::after {
+    content: "";
+    position: absolute;
+    top: -5px;  /* Shift slightly */
+    left: 10px;
+    min-width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: rgb(238, 238, 238); /* Light green */
+    z-index: 2; /* Middle layer */
+
+}
+
+/* Main Block (On Top) */
+.newsBlock {
+    border: 1px solid black;
+    width: 100%;
+    height: 300px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: large;
+    padding-left: 2%;
+    position: relative; /* Needed for z-index */
+    z-index: 3; /* Ensure this stays on top */
+    background-color: rgba(255, 255, 255, 0.993);
+    animation: downAnimationBlock 1s forwards;
+    margin-top: 0px;
+    transform: translateY(250px);
+
+}
+
+.newsBlock p{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.goIn{
+    animation: goInAnimation 1s forwards;
+}
+
+@keyframes goInAnimation {
+    from{
+        max-width: 0px; 
+        max-height: 30px; 
+        opacity: 0%; 
+    }
+    to{
+
+        max-width: 400px; 
+        max-height: 350px;
+        opacity: 100%;   }
+}
+
+.goOut{
+    animation: goOutAnimation 1s forwards;
+}
+
+@keyframes goOutAnimation {
+    from{
+        max-width: 400px; 
+        max-height: 350px;
+        opacity: 100%;    
+    }
+    to{
+        max-width: 0px; 
+        max-height: 30px; 
+        opacity: 0%;  }
+}
+
+.inNewsBlock{
+
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-height: 50%;
+
+}
+
+.newsBlock p{
+    padding: 10px;
+}
+
+.newsBlock:hover{
+    animation: upAnimationBlock 1s forwards;
+    z-index: 1000;
+
+}
+
+@keyframes upAnimationBlock {
+    from{
+        transform: translateY(0%);
+    }
+    to{
+       transform: translateY(-10%);
+    }
+}
+
+@keyframes downAnimationBlock {
+    from{
+        transform: translateY(-10%);
+    }
+    to{
+       transform: translateY(0%);
+    }
+}
+
+.NewsDown{
+   animation: downAnimation 1s forwards;
+}
+
+@keyframes downAnimation {
+    from{
+        transform: translateY(-20%) translateX(5%);
+    }
+    to{
+        transform: translateY(0%) translateX(5%);
+    }
+}
+
+.NewsUp{
+    animation: upAnimation 1s forwards;
+ }
  
-        small = 0;
-        document.querySelector(".navBarLogo").classList.remove("rotation")
-        document.querySelector(".navBarLogo").classList.add("backRotation");
-        document.querySelector(".navBarLogo").classList.remove("upscroll")
-        document.querySelector(".navTB").style.display = "table"
+ @keyframes upAnimation {
+     from{
+         transform: translateY(0%) translateX(5%);
+     }
+     to{
+        transform: translateY(-20%) translateX(5%);
+     }
+ }
 
-        var navbar = document.querySelector(".navbar");
-        var filling = document.querySelector(".choices");
-        var head = document.querySelector(".smallHead")
-        filling.style.backgroundColor = "rgb(238, 238, 238)";
-        filling.removeChild(head)
-        filling.classList.remove("smallBarChoices");
-
-        navbar.classList.remove("navBarScrolled");
-        navbar.classList.add("navBarUnscrolled");
-        var r = document.querySelectorAll(".remove")
-        r.forEach(e => {
-            filling.removeChild(e)
-        });
-    }
-});
-
-if(window.innerWidth < 1200){
-    small = 1;
-    smallNavBar(1); 
-
-}
-else{
-    var navbar = document.querySelector(".navbar");
-    navbar.classList.add("navBarUnscrolled");
-    document.querySelector(".navBarLogo").classList.add("backRotation");
-    document.querySelector(".navBarLogo").classList.remove("upscroll")
-}
-
-var manus = document.querySelectorAll(".tdRoll");
-var placeholder = document.querySelector(".Listplaceholder");
-manus.forEach(m => {
-    var list = document.createElement("div")
-    
-    m.addEventListener("click", () => {
-        manus.forEach(n => {
-            if(n != m)n.classList.remove("clicked")
-                
-        })
-
-        
-        placeholder.style.display = "grid";
-        list.innerHTML = ""
-        list.style.width = "90%"
-        list.style.display = "flex";
-        list.style.justifyContent = "center"
-        list.style.flexDirection = "column"
-        list.style.alignItems = "center"
-        pages[m.innerHTML].forEach(page => {
-            var x = document.createElement("p");
-            x.classList.add("hoverStyle")
-            x.innerHTML = page
-            list.appendChild(x);
-            x.addEventListener("click" ,() => {
-                x.style.cursor = "pointer";
-                window.location.href = `${createSlug(page)}.html`;
-            });
-            })
-        document.querySelectorAll(".clickedDiv").forEach(el => {
-            el.classList.remove("clickedDiv");
-            el.classList.add("unClickedDiv");
-            el.innerHTML = ""
-        });
-        if (!m.classList.contains("clicked")){
-            if(m.innerHTML == "O organizácií") {document.querySelector(".a").appendChild(list); document.querySelector(".a").classList.remove("unClickedDiv"); document.querySelector(".a").classList.add("clickedDiv")};
-            if(m.innerHTML == "Aktivity a podujatia") {document.querySelector(".b").appendChild(list); document.querySelector(".b").classList.remove("unClickedDiv"); document.querySelector(".b").classList.add("clickedDiv")};
-            if(m.innerHTML == "Administratíva a legislatíva") {document.querySelector(".c").appendChild(list);  document.querySelector(".c").classList.remove("unClickedDiv"); document.querySelector(".c").classList.add("clickedDiv")};
-            if(m.innerHTML == "Komunikácia a informácie") {document.querySelector(".d").appendChild(list);document.querySelector(".d").classList.remove("unClickedDiv"); document.querySelector(".d").classList.add("clickedDiv")};
-            m.classList.add("clicked");
-            
-        }
-        else{
-            m.classList.remove("clicked");
-            
-            
-        }
-
-    });
-
-});
-
-document.querySelector(".main").addEventListener("click", () => {
-    document.querySelectorAll(".clickedDiv").forEach(el => {
-        el.classList.remove("clickedDiv");
-        el.classList.add("unClickedDiv");
-        el.innerHTML = ""
-    });
-    document.querySelectorAll(".tdRoll").forEach(m => {
-        m.classList.remove("clicked");
-    });
-})
-
-let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-let scrollTimer;
-
-window.addEventListener("scroll", function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    let navbar = document.querySelector(".smallBarChoices");
-
-    if (currentScroll < lastScrollTop) {
-        if (navbar != null){
-            navbar.classList.remove("downscroll");
-            navbar.classList.add("upscroll");
-        }
-    clearTimeout(scrollTimer);
-
-    if(navbar != null){
-        scrollTimer = setTimeout(() => {
-            
-            navbar.classList.remove("upscroll");
-            navbar.classList.add("downscroll");
-        }, 350);
-
-    }
-
-    }
-    else{
-        if (navbar != null){
-            navbar.classList.remove("upscroll");
-            navbar.classList.remove("downscroll");
-        }
+ .bookmark {
+    display: flex;
+    min-height: 100px;
+    min-width: 30%;
+    background-image: url("images/bookmark.png");
+    background-repeat: no-repeat;
  
-    }
-
-    lastScrollTop = currentScroll;
-});
-var tresh = 0.5;
-if (window.innerWidth < 768){
-    tresh = 0.1;
 }
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 2.06"
 
 
+.news-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 450px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.news-card:hover {
+    transform: scale(1.02);
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+
+.news-date {
+    font-size: 12px;
+    color: #777;
+}
+
+.news-content {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.read-more {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.read-more:hover {
+    background: #0056b3;
+}
+
+.contact-form {
+    background: #1b1b1b00;
+    padding: 15px 30px; /* Zmenšený padding = menej výšky */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0);
+    width: 70%; /* Nastavenie šírky na 50% obrazovky */
+    max-width: 80%; /* Maximálna šírka, aby to nebolo extrémne */
+    margin-left: auto; /* Posunie formulár viac doprava */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+input, textarea {
+    width: 100%;
+    padding: 10px 0px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+/* Efekt pri fokusovaní inputov */
+input:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Tlačidlo Odoslať */
+button {
+    width: 100%;
+    max-height: 1%;
+    background: gray;
+    color: white;
+    border: none;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: black;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column ;
+    align-items: center;
+    width: 100%;
+}
+
+
+.informationMainPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+    margin-bottom: 75px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid black;
+    
+}
+.informationMainPage p{
+    
+    font-size: 120%;
+
+}
+
+.mainNewsImg{
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 500px;
+    margin-right: 25px;
+    animation: newsImgAniBase 1s forwards;
+    cursor: pointer;
+
+}
+
+.aboutUsButtonMainPage{
+    cursor: pointer;
+}
+
+.mainNewsImg:hover{
+    animation: newsImgAni 1s forwards;
+}
+
+@keyframes newsImgAni {
+    from{
+        background-color: rgba(255, 255, 255, 0);
+        transform: translateY(0px);
+    }
+    to{
+        background-color: rgba(0, 0, 0, 0.151);
+        transform: translateY(-10px);
+
+    }
+}
+
+@keyframes newsImgAniBase {
+    from{
+        background-color: rgba(0, 0, 0, 0.151);
+        transform: translateY(-10px);
+
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0);
+        transform: translateY(0px);
+
+    }
+}
+
+.showNewsContent{
+    display: flex;
+    flex-direction: column;
+    width: 0%;
+    min-height: 300px;
+    z-index: 5000;
+    border: 0px solid black;
+    border-radius: 25px;
+    background-color: rgb(252, 252, 252);
+    padding: 0px;
+    overflow: hidden;
+    font-size: 21px;
+}
+
+.containerRollIn{
+    animation: rollInContNews 1s forwards
+}
+
+@keyframes rollInContNews {
+    from{
+        min-width: 0%;
+        padding: 25px;
+        border: 0px solid black;  
+    }
+
+    to{
+        min-width: 95%;
+        max-width: 70vw;
+        padding: 25px;
+        border: 1px solid black;
+
+    }
+}
+
+.newsLoader{
+    width: 100%;
+    height: 5px;
+    background-color:rgba(169, 169, 170, 0.788);
+    border-radius: 50px;
+    border-right: 10px solid rgb(0, 0, 0);
+}
+
+.MainPageNewsHeadder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.watch-me{
+    opacity: 1%;
+}
+
+.appeared{
+    animation: appear 1s forwards
+}
+
+@keyframes appear {
+    from{
+        opacity: 100%;
+        transform: translateX(-150%);
+    }
+    to{
+        opacity: 100%;
+        transform: translateX(0%);
+    }    
+}
+
+@media screen and (max-width: 768px) {
+
+    .footerDiv{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        width: 100%;
+    }
+    .footerSection{
+        max-width: 90%;
+        min-width: 90%;
+        padding: 25px;
+        padding-top: 50px;
+        margin: 0px;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .footerSection p{
+        margin: 0px;
+        margin-top: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contact-form{
+        padding: 0px;
+    }
+
+
+    .container{
+        width: 80%;
+        min-width: 80%;
+        max-width: 80%;
+        transform: translateX(-10%);
+    }
+
+    .container p{
+        font-size: 90%;
+        font-style: normal;
+    }
+
+    .mainNews{
+        width: 100%;
+        transform: translateX(0px);
+    }
+
+
+
+    form{
+        display: flex;
+        flex-direction: column ;
+        align-items: center;
+        width: 80%;
+    }
+    .showNewsContent{
+        font-size: 15px;
+        max-width: 80vw;
+    }
+    
+@keyframes rollInContNews {
+    from{
+        min-width: 0%;
+        padding: 25px;
+
+    }
+    to{
+        min-width: 85%;
+        padding: 25px;
+
+    }
+}
+
+.informationMainPage{
+    width: 90%;
+    padding: 2%;
+}
+
+.informationMainPage p{
+    font-size: 1.2rem;
+}
+}
+
+
+
+/*background-color: rgb(20, 20, 20);*/
+.cssversion::after {
+    content: "CSS Verzia: 2.07"
+    }
+    
