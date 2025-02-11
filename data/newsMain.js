@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             nextBtn.addEventListener("click", function () {
                 const maxScroll = newsContainer.scrollWidth - newsContainer.clientWidth;
-                if (scrollAmount < maxScroll) {
+                if (scrollAmount < maxScroll && !document.querySelector(".showNewsContent").classList.contains("containerRollIn")) {
                     scrollAmount += scrollStep;
                     Alrviewed += 1;
                     loader = calculateLoader();
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             prevBtn.addEventListener("click", function () {
-                if (scrollAmount > 0) {
+                if (scrollAmount > 0 && !document.querySelector(".showNewsContent").classList.contains("containerRollIn")) {
                     scrollAmount -= scrollStep;
                     Alrviewed -= 1;
                     loader = calculateLoader();
@@ -123,6 +123,7 @@ function createNewsWindow(entry) {
     bookmark.classList.add("bookmark");
 
     const headder = document.createElement("div");
+    headder.classList.add("MainPageNewsHeadder");
     const Htext = document.createElement("h4");
     Htext.innerText = entry.name;
     const Dtext = document.createElement("p");
@@ -140,8 +141,8 @@ function createNewsWindow(entry) {
     newsBlock.appendChild(text);
     container.appendChild(newsBlock);
     container.addEventListener("click", () => {
+        document.querySelector(".scrollIntoNews").scrollIntoView({ behavior: "smooth" });
         showNews(entry);
-
     });
     return container;
 }
@@ -149,6 +150,7 @@ function createNewsWindow(entry) {
 
 function showNews(content){
     var container = document.querySelector(".showNewsContent");
+    
     var head = document.createElement("h2");
     var date = document.createElement("p");
     var text = document.createElement("p");
@@ -170,6 +172,7 @@ function showNews(content){
 
     container.classList.add("containerRollIn");
     btn.addEventListener("click", () => {
+
         container.innerHTML = "";
         container.classList.remove("containerRollIn");
     });
