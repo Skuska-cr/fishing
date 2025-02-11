@@ -16,7 +16,7 @@ body{
 
 p{
     font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+    
 
 }
 /* navbar */
@@ -53,7 +53,6 @@ nav .headding{
 
 h3{
     font-family: "Times New Roman", Times, serif;
-    font-style: oblique;
     font-weight: bold;
 }
 
@@ -102,7 +101,6 @@ nav .choices td{
     width: 25%;
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;
-    font-style: italic;
     color: white;
 }
 
@@ -465,7 +463,7 @@ th, td {
 }
 
 .mainPagepicture h2{
-    color: rgb(106, 206, 236);
+    color: rgb(194, 233, 243);
 }
 
 .main{
@@ -762,7 +760,7 @@ footer{
     min-height: 250px;
     position: static;
     font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+
     max-width: 1920px;
 }
 
@@ -943,6 +941,7 @@ footer{
 .newsBlock p{
     margin-top: 0px;
     padding-top: 0px;
+    font-size: 1vw;
 }
 
 .goIn{
@@ -984,6 +983,7 @@ footer{
     flex-direction: row;
     width: 100%;
     max-height: 50%;
+
 }
 
 .newsBlock p{
@@ -1173,7 +1173,7 @@ form{
     align-items: center;
     flex-direction: column;
     width: 60%;
-    font-size: 20px;
+    font-size: 150%;
     margin-bottom: 75px;
 }
 
@@ -1226,7 +1226,7 @@ form{
     width: 0%;
     min-height: 300px;
     z-index: 5000;
-    border: 1px solid black;
+    border: 0px solid black;
     border-radius: 25px;
     background-color: rgb(252, 252, 252);
     padding: 0px;
@@ -1242,12 +1242,14 @@ form{
     from{
         min-width: 0%;
         padding: 25px;
-
+        border: 0px solid black;  
     }
+
     to{
         min-width: 95%;
         max-width: 70vw;
         padding: 25px;
+        border: 1px solid black;
 
     }
 }
@@ -1258,6 +1260,13 @@ form{
     background-color:rgba(169, 169, 170, 0.788);
     border-radius: 50px;
     border-right: 10px solid rgb(0, 0, 0);
+}
+
+.MainPageNewsHeadder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1rem;
 }
 
 @media screen and (max-width: 768px) {
@@ -1353,12 +1362,21 @@ form{
 
     }
 }
+
+.informationMainPage{
+    width: 90%;
+    padding: 2%;
+}
+
+.informationMainPage p{
+    font-size: 1.2rem;
+}
 }
 
 
 
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-    content: "CSS Verzia: 2.05"
+    content: "CSS Verzia: 2.06"
     }
     
