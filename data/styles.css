@@ -589,6 +589,7 @@ th, td {
     99%{
         
         height: 0px;
+        display: none;
     }
     100%{
         display: none;
