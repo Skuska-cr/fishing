@@ -1196,7 +1196,6 @@ form{
     align-items: center;
     flex-direction: column;
     width: 60%;
-    margin-bottom: 75px;
     padding-bottom: 50px;
     border-bottom: 1px solid black;
     
@@ -1212,7 +1211,6 @@ form{
     border: 1px solid black;
     border-radius: 500px;
     margin-right: 25px;
-    animation: newsImgAniBase 1s forwards;
     cursor: pointer;
 
 }
@@ -1221,34 +1219,9 @@ form{
     cursor: pointer;
 }
 
-.mainNewsImg:hover{
-    animation: newsImgAni 1s forwards;
-}
 
-@keyframes newsImgAni {
-    from{
-        background-color: rgba(255, 255, 255, 0);
-        transform: translateY(0px);
-    }
-    to{
-        background-color: rgba(0, 0, 0, 0.151);
-        transform: translateY(-10px);
 
-    }
-}
 
-@keyframes newsImgAniBase {
-    from{
-        background-color: rgba(0, 0, 0, 0.151);
-        transform: translateY(-10px);
-
-    }
-    to{
-        background-color: rgba(255, 255, 255, 0);
-        transform: translateY(0px);
-
-    }
-}
 
 .showNewsContent{
     display: flex;
@@ -1276,8 +1249,7 @@ form{
     }
 
     to{
-        min-width: 95%;
-        max-width: 70vw;
+        min-width: 90%;
         padding: 25px;
         border: 1px solid black;
 
