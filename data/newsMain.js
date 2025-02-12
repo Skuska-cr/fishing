@@ -58,15 +58,15 @@ document.addEventListener("DOMContentLoaded", function () {
            
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.intersectionRatio === 1) {
-                        entry.target.classList.remove("goOut")
-                        entry.target.classList.add("goIn") 
+                    if (entry.intersectionRatio > 0) {
+                        entry.target.classList.remove("goOut");
+                        entry.target.classList.add("goIn");
                     } else {
-                        entry.target.classList.remove("goIn")  
-                        entry.target.classList.add("goOut")
+                        entry.target.classList.remove("goIn");
+                        entry.target.classList.add("goOut");
                     }
                 });
-            }, { root: newsContainer, threshold: 1 }); 
+            }, { root: newsContainer, threshold: 0 });
 
             newsBlocks.forEach(block => {
                 observer.observe(block);
@@ -78,17 +78,20 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             nextBtn.addEventListener("click", function () {
                 const maxScroll = newsContainer.scrollWidth - newsContainer.clientWidth;
-                if (scrollAmount < maxScroll && !document.querySelector(".showNewsContent").classList.contains("containerRollIn")) {
+                if (scrollAmount < maxScroll ) {
                     scrollAmount += scrollStep;
                     Alrviewed += 1;
                     loader = calculateLoader();
+                    if (loader > 100){
+                        loader = 100;
+                    }
                     LoaderBar.style.width = `${loader*1}%`;
                     newsContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
                 }
             });
 
             prevBtn.addEventListener("click", function () {
-                if (scrollAmount > 0 && !document.querySelector(".showNewsContent").classList.contains("containerRollIn")) {
+                if (scrollAmount > 0 ) {
                     scrollAmount -= scrollStep;
                     Alrviewed -= 1;
                     loader = calculateLoader();
@@ -141,43 +144,13 @@ function createNewsWindow(entry) {
     newsBlock.appendChild(text);
     container.appendChild(newsBlock);
     container.addEventListener("click", () => {
-        document.querySelector(".scrollIntoNews").scrollIntoView({ behavior: "smooth" });
-        showNews(entry);
+        //TODO: Redirect to news page
     });
     return container;
 }
 
 
-function showNews(content){
-    var container = document.querySelector(".showNewsContent");
-    
-    var head = document.createElement("h2");
-    var date = document.createElement("p");
-    var text = document.createElement("p");
-    var btn = document.createElement("p");
-    head.innerHTML = content.name;
-    date.innerHTML = content.date;
-    text.innerHTML = content.text;
-    btn.innerHTML = "Zavrieť"
-    btn.style.padding = "25px"
-    btn.style.borderRadius = "25px";
-    btn.style.cursor = "pointer";
-    btn.style.color = "blue"
-    setTimeout(() => {
-        container.appendChild(head);
-        container.appendChild(date);
-        container.appendChild(text);
-        container.appendChild(btn);
-    },500)
 
-    container.classList.add("containerRollIn");
-    btn.addEventListener("click", () => {
-
-        container.innerHTML = "";
-        container.classList.remove("containerRollIn");
-    });
-
-}
 
 document.querySelector(".mainNewsImg").addEventListener("click", () => {
     window.location.href = "novinky.html";
