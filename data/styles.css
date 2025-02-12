@@ -278,7 +278,7 @@ h1{
 h2{
     font-weight: 1200;
     font-size: 30px;
-    color: rgb(1, 73, 73)
+    color: rgb(1, 73, 73);
 }
 
 
@@ -790,13 +790,16 @@ footer{
 .footerDiv{
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 90%;
     flex-direction: row;
     min-height: 100px;
+
 }
 
 .footerDiv h2{
-    color: rgb(0, 110, 201);
+    color: rgba(255, 255, 255, 0.562);
+    padding: 5px;
+    border-bottom: 2px solid white;
 }
 
 .footerSection{
@@ -805,9 +808,12 @@ footer{
     justify-content: center;
     flex-direction: column;
     min-height: 100px;
-    min-width: 50%;
-    max-width: 50%;
+    min-width: 30%;
+    max-width: 30%;
     align-items: center;
+    border-radius: 25px;
+    margin: 20px;
+
 }
 .footerSection p{
     margin: 0px;
@@ -1126,7 +1132,6 @@ footer{
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0);
     width: 70%; /* Nastavenie šírky na 50% obrazovky */
     max-width: 80%; /* Maximálna šírka, aby to nebolo extrémne */
-    margin-left: auto; /* Posunie formulár viac doprava */
 }
 
 label {
@@ -1328,7 +1333,7 @@ form{
         max-width: 90%;
         min-width: 90%;
         padding-top: 50px;
-        margin: 0px;
+
         justify-content: center;
         flex-direction: column;
     }
