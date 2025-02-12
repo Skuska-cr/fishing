@@ -677,7 +677,7 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    overflow: hidden;
 }
 
 .smallHead{
@@ -1189,7 +1189,7 @@ form{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 60%;
+    width: 70%;
     padding-bottom: 50px;
     border-bottom: 1px solid black;
     
@@ -1204,7 +1204,32 @@ form{
     border-radius: 500px;
     margin-right: 25px;
     cursor: pointer;
+    animation: ImageDOWN 1s forwards;
+}
 
+.mainNewsImg:hover{
+  animation: ImageUP 1s forwards;
+}
+
+@keyframes ImageUP {
+    from{
+        transform: translateY(0%);
+        background-color: white;
+    }to{
+        background-color: rgba(0, 48, 59, 0.185);
+        transform: translateY(-10%);
+    }
+}
+
+@keyframes ImageDOWN {
+    from{
+        background-color: rgba(0, 48, 59, 0.185);
+        transform: translateY(-10%);
+        }
+        to{
+            background-color: white;
+        transform: translateY(0%);
+        }
 }
 
 .aboutUsButtonMainPage{
