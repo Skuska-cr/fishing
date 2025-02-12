@@ -511,6 +511,7 @@ th, td {
     flex-direction: column;
     border-radius: 20px;
     width: 90%;
+    overflow: hidden;
 }
 .mms{
     display: flex;
@@ -584,14 +585,10 @@ th, td {
 @keyframes uss {
     0%{
         height: 200px;
-    }
-
-    99%{
-        
-        height: 0px;
-        display: none;
+        overflow: hidden;
     }
     100%{
+        height: 0px;
         display: none;
     }
 }
@@ -619,7 +616,6 @@ th, td {
         margin: 5px;
         font-size: 13px;
         overflow: hidden;
-        
         width: 75%;
     }
     .ms p{
@@ -834,7 +830,6 @@ footer{
 }
 
 .mainNews{
-    border-radius: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -843,17 +838,16 @@ footer{
     padding: 2%;
     padding-top: 5%;
     z-index: 1;
-    transform: translateX(25%);
     left: 0;
     align-items: center;
 }
 
 .mainNewsMain{
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
-    width: 90%;
+    width: 100%;
     z-index: 0;
     min-height: 400px;
     align-items: center;
@@ -920,12 +914,12 @@ footer{
     content: "";
     position: absolute;
     top: -10px;  /* Shift down */
-    left: 15px; /* Shift right */
+    left: 20px; /* Shift right */
     min-width: 100%;
     height: 100%;
     border: 1px solid black;
     border-radius: 20px;
-    background-color: rgb(235, 235, 235); /* Light blue */
+    background-color: rgb(255, 255, 255);
     z-index: 1; /* Bottom-most */
 
 }
@@ -940,7 +934,7 @@ footer{
     height: 100%;
     border: 1px solid black;
     border-radius: 20px;
-    background-color: rgb(238, 238, 238); /* Light green */
+    background-color: rgb(255, 255, 255);
     z-index: 2; /* Middle layer */
 
 }
@@ -957,7 +951,7 @@ footer{
     padding-left: 2%;
     position: relative; /* Needed for z-index */
     z-index: 3; /* Ensure this stays on top */
-    background-color: rgba(255, 255, 255, 0.993);
+    background-color: rgb(255, 255, 255);
     animation: downAnimationBlock 1s forwards;
     margin-top: 0px;
     transform: translateY(250px);
@@ -976,13 +970,13 @@ footer{
 @keyframes goInAnimation {
     from{
         max-width: 0px; 
-        max-height: 30px; 
-        opacity: 0%; 
+        display: flex;
+        opacity: 100%;
     }
     to{
 
         max-width: 400px; 
-        max-height: 350px;
+        display: flex;
         opacity: 100%;   }
 }
 
@@ -993,13 +987,11 @@ footer{
 @keyframes goOutAnimation {
     from{
         max-width: 400px; 
-        max-height: 350px;
         opacity: 100%;    
     }
     to{
         max-width: 0px; 
-        max-height: 30px; 
-        opacity: 0%;  }
+          }
 }
 
 .inNewsBlock{
@@ -1045,10 +1037,10 @@ footer{
 
 @keyframes downAnimation {
     from{
-        transform: translateY(-20%) translateX(5%);
+        transform: translateY(-20%);
     }
     to{
-        transform: translateY(0%) translateX(5%);
+        transform: translateY(0%);
     }
 }
 
@@ -1227,7 +1219,7 @@ form{
     display: flex;
     flex-direction: column;
     width: 0%;
-    min-height: 300px;
+    max-height: 0px;
     z-index: 5000;
     border: 0px solid black;
     border-radius: 25px;
@@ -1238,18 +1230,26 @@ form{
 }
 
 .containerRollIn{
+    width: 50%;
+    height: 50%;
     animation: rollInContNews 1s forwards
 }
 
 @keyframes rollInContNews {
     from{
         min-width: 0%;
+        max-width: 0%;
+        min-height: 0px;
+        max-height: 0px;
         padding: 25px;
         border: 0px solid black;  
     }
 
     to{
-        min-width: 90%;
+        min-width: 90vw;
+        max-width: 90vw;
+        max-height: none;
+        min-height: none;
         padding: 25px;
         border: 1px solid black;
 
@@ -1342,10 +1342,7 @@ form{
         align-items: center;
         width: 80%;
     }
-    .showNewsContent{
-        font-size: 15px;
-        max-width: 80vw;
-    }
+
     
     @keyframes rollInContNews {
         from{
@@ -1383,6 +1380,6 @@ form{
 
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-    content: "CSS Verzia: 2.07"
+    content: "CSS Verzia: 2.08"
     }
     
