@@ -43,7 +43,13 @@ function addPage(pg,p,main){
         div.appendChild(x)
         x.addEventListener("click" ,() => {
             x.style.cursor = "pointer";
-            window.location.href = `${createSlug(a)}.html`;
+            if (a != "MO SRZ Medzilaborce"){
+                window.location.href = `${createSlug(a)}.html`;
+            }
+            else{
+                window.location.href = `index.html`;
+            }
+           
         });
     })
 
@@ -291,7 +297,12 @@ manus.forEach(m => {
             list.appendChild(x);
             x.addEventListener("click" ,() => {
                 x.style.cursor = "pointer";
-                window.location.href = `${createSlug(page)}.html`;
+                if (page != "MO SRZ Medzilaborce"){
+                    window.location.href = `${createSlug(page)}.html`;
+                }
+                else{
+                    window.location.href = `index.html`;
+                }
             });
             })
         document.querySelectorAll(".clickedDiv").forEach(el => {
