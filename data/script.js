@@ -392,6 +392,6 @@ window.addEventListener("load", function() {
 
 });
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 2.08"
+document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 3.02"
 
 
