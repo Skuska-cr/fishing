@@ -1309,6 +1309,13 @@ form{
     animation: appear 1s forwards
 }
 
+
+.hoverTable:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 @keyframes appear {
     from{
         opacity: 100%;
@@ -1319,6 +1326,62 @@ form{
         transform: translateX(0%);
     }    
 }
+
+
+.aboutusFunctionsTable {
+    width: 60%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aboutusFunctionsTable td, .aboutusFunctionsTable th  {
+    padding: 12px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.aboutusFunctionsTable th{
+    font-weight: bold;
+}
+
+.aboutusFunctionsTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.aboutusFunctionsTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+.aboutusFunctionsTable th.sortable:hover {
+    cursor: pointer;
+    background-color: #e0e0e0;
+}
+
+.aboutusFunctionsTable th.sortable::after {
+    content: " \25B2"; /* Unicode character for up arrow */
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.aboutusFunctionsTable th.sortable.desc::after {
+    content: " \25BC"; /* Unicode character for down arrow */
+}
+
+.fetchedTables{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.fetchedTables div{
+    min-width: 80%;
+}
+
 
 @media screen and (max-width: 768px) {
 
@@ -1404,12 +1467,15 @@ form{
             transform: translateY(0%) translateX(0%);
         }
     }
-}
 
+    .aboutusFunctionsTable{
+        width: 95%;
+    }
+}
 
 
 /*background-color: rgb(20, 20, 20);*/
 .cssversion::after {
-    content: "CSS Verzia: 2.08"
+    content: "CSS Verzia: 3.02"
     }
     
