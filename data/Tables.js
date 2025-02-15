@@ -1,4 +1,4 @@
-var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/AboutUsTables.json"
+var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/AboutUsTables.json";
 let cont = document.querySelector(".fetchedTables");
 
 fetch(jsonUrl)
