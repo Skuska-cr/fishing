@@ -487,7 +487,6 @@ th, td {
     align-items: center;
     text-align: center;
     border: 2px solid black;
-    border-radius: 20px;
 }
 
 .mainPagepicture h2{
@@ -729,7 +728,7 @@ th, td {
 }
 
 .hoverStyle{
-    font-weight: bold;
+
     width: 90%;
     
     margin: 5px;
@@ -738,7 +737,7 @@ th, td {
 
 .hoverStyle:hover{
     cursor: pointer;
-    font-weight: lighter;
+    font-weight: bold;
     border-radius: 20px;
     border-bottom: 1px solid white;
 }
