@@ -403,6 +403,6 @@ window.addEventListener("load", function() {
 
 });
 
-document.querySelector(".javascriptVersions").innerHTML = "Javascript verzia: 3.02"
+document.querySelector(".javascriptVersions").innerHTML = "App version: 3.02(H4C1J1)"
 
 

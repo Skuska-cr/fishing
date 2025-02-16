@@ -86,10 +86,12 @@ h3{
 nav .headding h2{
     margin: 0px 20px;
     margin-top: 5px;
+    font-size: 250%;
 }
 nav .headding h3{
     bottom: 0;
     margin: 0px 20px;
+    
 }
 
 nav .choices{
@@ -830,10 +832,24 @@ footer{
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.397);
     border: 3px solid black;
+    padding: 20px 50px;
     color: rgb(255, 255, 255);
     font-size: larger;
 
 }
+.mainNameDiv h2{
+    font-size: 200% ;
+
+}
+
+
+.move:hover{
+transform: none !important;
+transform: scale(1.10) translateY(75px) translateX(-25px) !important;
+transition: transform 0.3s ease !important;
+
+}
+
 
 .mainNews{
     display: flex;
@@ -1194,13 +1210,13 @@ form{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
     padding-bottom: 50px;
-    border-bottom: 1px solid black;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.164);
     
 }
 .informationMainPage p{
-    font-size: 150%;
+    font-size: 130%;
 }
 
 .mainNewsImg{
@@ -1329,12 +1345,19 @@ form{
 
 
 .aboutusFunctionsTable {
-    width: 60%;
+    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 18px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.tablesDiv{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 80%;
+
 }
 
 .aboutusFunctionsTable td, .aboutusFunctionsTable th  {
@@ -1382,7 +1405,25 @@ form{
     min-width: 80%;
 }
 
+.leftTextMainPage{
+    width:60%;
+    background-color: white; 
+    border-radius: 25px; 
+    padding: 25px;
+    box-shadow: 5px 5px 5px rgba(39, 149, 192, 0.26);
+}
 
+.trtt{
+    transform: translateY(75px) translateX(-25px);
+    transition: transform 0.3s ease !important;
+} 
+.tablesDiv div{
+    width: 50%;
+}
+
+.informationMainPage div{
+    max-width: 70%;
+}
 @media screen and (max-width: 768px) {
 
     .footerDiv{
@@ -1471,11 +1512,29 @@ form{
     .aboutusFunctionsTable{
         width: 95%;
     }
+
+    .noMobile{
+        display: none;
+    }
+    .leftTextMainPage{
+        width: 100%;
+        background-color: white; 
+        border-radius: 25px; 
+        padding: 25px;
+        box-shadow: 5px 5px 5px rgba(1, 91, 126, 0.301);
+    }
+    .informationMainPage div{
+        max-width: 100%;
+    }
+    .tablesDiv{
+        flex-direction: column;
+        width: 100%;
+    
+    }
+
+    .tablesDiv div{
+        width: 90%;
+    }
 }
 
 
-/*background-color: rgb(20, 20, 20);*/
-.cssversion::after {
-    content: "CSS Verzia: 3.02"
-    }
-    
