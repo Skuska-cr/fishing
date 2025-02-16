@@ -1436,6 +1436,30 @@ form{
 .informationMainPage div{
     max-width: 70%;
 }
+
+.rvrsMain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+}
+
+.rvrsBlock{
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 50px);
+    border: 1px solid black;
+    min-height: 125px;
+    border-radius: 25px;
+    padding-left: 50px;
+    margin: 25px;
+
+}
+
+
+
+
 @media screen and (max-width: 768px) {
 
     .footerDiv{
