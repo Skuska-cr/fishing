@@ -23,6 +23,11 @@
         "3": ["Rybársky hospodár", "Marián Kvašny", "tel. 0907 991 498"],
         "4": ["Účtovník", "Nikola Macko" ,"tel. 0919 141 877"],
         "5": ["Pokladník","Michal Macko", "tel. 0907 996 472"]
-    }
+    },
+    "ParticipientsControl": {
+        "1": ["Predseda", "Jozef Ištván"],
+        "2": ["Člen", "Slavomír Onufrák"],
+        "3": ["Člen", "Štefan Borč"]
+    },
     
 }
