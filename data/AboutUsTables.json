@@ -18,11 +18,13 @@
         "4": ["Dospelí", "35€"]
     },
     "ParticipientsMain": {
+
         "1": ["Predseda", "Mgr. Matúš Halagán",	"tel. +421 905 947 877"],
         "2": ["Tajomník", "Mgr. Martin Onufrák",	"tel. +421 915 613 375"],
         "3": ["Rybársky hospodár", "Marián Kvašny", "tel. +421 907 991 498"],
         "4": ["Účtovník", "Nikola Macko" ,"tel. +421 919 141 877"],
         "5": ["Pokladník","Michal Macko", "tel. +421 907 996 472"]
+
     },
     "ParticipientsControl": {
         "1": ["Predseda", "Jozef Ištván"],
