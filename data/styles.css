@@ -1363,6 +1363,7 @@ form{
     margin: 20px 0;
     font-size: 18px;
     text-align: center;
+    border-top: 1px solid black;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .tablesDiv{
@@ -1375,8 +1376,7 @@ form{
 
 .aboutusFunctionsTable td, .aboutusFunctionsTable th  {
     padding: 12px;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+
 }
 
 .aboutusFunctionsTable th{
