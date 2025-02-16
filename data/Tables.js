@@ -5,7 +5,8 @@ fetch(jsonUrl)
 .then(response => response.json())
 .then(data => {
     Object.entries(data).forEach(entry => {
-        cont.appendChild(createTable(entry));
+        var c = createTable(entry);
+        if (c != null) cont.appendChild(c);
     })
     
     function observeHalfVisible(selector) {
@@ -29,6 +30,46 @@ observeHalfVisible(".watch-me");
 function createTable(entry){
     let div = document.createElement("div");
     let headder = document.createElement("h3");
+    if (entry[0] == "ParticipientsMain" || entry[0] == "ParticipientsControl"){
+        if (entry[0] == "ParticipientsMain"){
+            var tbl = document.querySelector(".partMain");
+            if (!tbl) {
+                tbl = document.createElement("table");
+                tbl.classList.add("partMain");
+                cont.appendChild(tbl);
+            }
+            let tbody = document.createElement("tbody");
+            Object.entries(entry[1]).forEach(([key, value]) => {
+                let row = document.createElement("tr");
+                value.forEach(v => {
+                    let cell = document.createElement("td");
+                    cell.textContent = v;
+                    row.appendChild(cell);
+                });
+                tbody.appendChild(row);
+            });
+            tbl.appendChild(tbody);
+        }else if(entry[0] == "ParticipientsControl"){
+            var tbl = document.querySelector(".partCont");
+            if (!tbl) {
+                tbl = document.createElement("table");
+                tbl.classList.add("partControl");
+                cont.appendChild(tbl);
+            }
+            let tbody = document.createElement("tbody");
+            Object.entries(entry[1]).forEach(([key, value]) => {
+                let row = document.createElement("tr");
+                value.forEach(v => {
+                    let cell = document.createElement("td");
+                    cell.textContent = v;
+                    row.appendChild(cell);
+                });
+                tbody.appendChild(row);
+            });
+            tbl.appendChild(tbody);
+        }
+        return null;
+    }
     headder.style.borderBottom = "1px solid black";
     headder.textContent = entry[0];
     div.appendChild(headder);
@@ -38,13 +79,12 @@ function createTable(entry){
 
     Object.entries(entry[1]).forEach(([key, value]) => {
         let row = document.createElement("tr");
-        let cell2 = document.createElement("td");
-        cell2.textContent = value[0];
-        row.appendChild(cell2);
+        for (v of value){
 
-        let cell3 = document.createElement("td");
-        cell3.textContent = value[1];
-        row.appendChild(cell3);
+            let cell2 = document.createElement("td");
+            cell2.textContent = v;
+            row.appendChild(cell2);
+        }
 
         tbody.appendChild(row);
     });
