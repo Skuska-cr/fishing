@@ -843,8 +843,7 @@ footer{
 
 
 .move:hover{
-transform: none !important;
-transform: scale(1.10) translateY(75px) translateX(-25px) !important;
+transform: scale(1.10) translateY(75px) !important;
 transition: transform 0.3s ease !important;
 
 }
@@ -1426,7 +1425,7 @@ form{
 }
 
 .trtt{
-    transform: translateY(75px) translateX(-25px);
+    transform: translateY(75px);
     transition: transform 0.3s ease !important;
 } 
 .tablesDiv div{
