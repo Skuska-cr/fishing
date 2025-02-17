@@ -801,25 +801,31 @@ footer{
     color: rgba(255, 255, 255, 0.562);
     padding: 5px;
     border-bottom: 2px solid white;
+    width: 100%;
+    display: flex;
 }
 
 .footerSection{
     top: 30px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     min-height: 100px;
     min-width: 30%;
     max-width: 30%;
-    align-items: center;
     border-radius: 25px;
-    margin: 20px;
-
 }
 .footerSection p{
     margin: 0px;
     margin-top: 5px;
     font-size: larger;
+}
+.footerSection a{
+    color: white;
+    text-decoration: none;
+}
+.footerSection a:hover{
+    color: rgba(255, 255, 255, 0.562);
+    text-decoration: underline;
 }
 
 
@@ -1140,23 +1146,21 @@ transition: transform 0.3s ease !important;
 
 .contact-form {
     background: #1b1b1b00;
-    padding: 15px 30px; /* Zmenšený padding = menej výšky */
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(255, 255, 255, 0);
     width: 70%; /* Nastavenie šírky na 50% obrazovky */
-    max-width: 80%; /* Maximálna šírka, aby to nebolo extrémne */
+    max-width: 100%; /* Maximálna šírka, aby to nebolo extrémne */
 }
 
 label {
     display: block;
     margin-top: 10px;
-    font-weight: bold;
-}
+    font-weight: bold;}
 
 
 input, textarea {
-    width: 100%;
-    padding: 10px 0px;
+    width: calc(100% - 10px);
+    padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -1173,16 +1177,16 @@ input:focus, textarea:focus {
 
 /* Tlačidlo Odoslať */
 button {
-    width: 100%;
+    width: calc(100% + 10px);
     max-height: 1%;
     background: gray;
     color: white;
     border: none;
     display: flex;
-    padding: 30px;
+    padding: 20px 20px; 
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
+    margin-top: 20px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
@@ -1496,7 +1500,7 @@ form{
         max-width: 90%;
         min-width: 90%;
         padding-top: 50px;
-
+        align-items: center;
         justify-content: center;
         flex-direction: column;
     }
@@ -1595,5 +1599,4 @@ form{
         width: 90%;
     }
 }
-
 
