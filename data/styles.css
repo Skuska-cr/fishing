@@ -1603,7 +1603,10 @@ form{
 
 
 
-
+.clcSwap:hover {
+    scale: 1.08;
+    transition: transform 0.3s ease;
+}
 @keyframes apperBaseV {
     from{
         width: 20%;
