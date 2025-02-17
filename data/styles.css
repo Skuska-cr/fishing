@@ -4,6 +4,8 @@ body{
 
     display: flex;
     justify-content: center;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     align-items: center;
     background-color: rgba(235, 235, 235, 0.445);
@@ -1484,8 +1486,164 @@ form{
 
 }
 
+.zrbnMainDiv{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    min-height: 300px;
+    border-radius: 20px;
+}
+
+.zau-hidden{
+    animation: hideZau 0.7s forwards;
+    width: 20%;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    box-shadow: 15px 5px 10px rgba(0, 0, 0, 0.377);
+}
+.zau-hidden h2{
+    color: white;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.zau-visible h2, .zau-base h2{
+    color: black;
+    cursor: pointer;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.zau-visible h2:hover {
+    transform:  scale(1.08);
+    transition: transform 0.3s ease;
+}
+
+.zau-hidden h2:hover {
+    transform:  scale(1.08);
+    transition: transform 0.3s ease;
+}
+
+.zau-visible{
+    animation: showZau 0.7s forwards;
+    width: 80%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.zau-logos{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin: 25px;
+    justify-content: space-between;
+}
+
+.oneBlockPdf{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.zau-visible img, .zau-hidden img, .zau-base-hidden img, .zau-base-visible img{
+    width: 150px;
+    border-radius: 20px;
+}
+
+.zau-hidden .oneBlockPdf{
+    opacity: 10%;
+}
 
 
+.zau-base-visible {
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: apperBaseH 0.5s forwards;
+    border-radius: 20px;
+}
+
+.zau-base-hidden {
+    width: 50%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: apperBaseV 0.5s forwards;
+    background-color:rgba(255, 255, 255, 0);
+    border-radius: 20px;
+}
+
+
+
+
+
+@keyframes apperBaseV {
+    from{
+        width: 20%;
+    }
+    to{
+        width: 50%;
+        border: 15px solid white;
+        box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
+    }
+}
+
+@keyframes apperBaseH {
+    from{
+        width: 80%;
+    }
+    to{
+        box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
+        border: 15px solid white;
+        width: 50%;
+    }
+}
+
+@keyframes hideZau {
+    from{
+        width: 80%;
+        background-color: rgba(255, 255, 255, 0);
+        color: rgb(0, 0, 0);
+    }
+    to{
+        background-color: rgb(32, 29, 29);
+        width: 20%;
+        color: white;
+    }
+}
+
+@keyframes showZau {
+    from{
+        background-color: rgb(26, 25, 25);
+        width: 20%;
+    }
+    to{
+        color: black;
+        background-color: rgba(255, 255, 255, 0);
+        width: 80%;
+    }
+}
 
 @media screen and (max-width: 768px) {
 
