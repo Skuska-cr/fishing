@@ -1541,6 +1541,8 @@ form{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-radius: 20px;   
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.377);
 
 }
 
@@ -1559,6 +1561,8 @@ form{
     align-items: center;
     margin: 15px;
     cursor: pointer;
+    border-bottom: 1px solid black;
+    border-radius: 20px;
 }
 
 .zau-visible img, .zau-hidden img, .zau-base-hidden img, .zau-base-visible img{
@@ -1580,6 +1584,7 @@ form{
     text-align: center;
     animation: apperBaseH 0.5s forwards;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .zau-base-hidden {
@@ -1592,6 +1597,7 @@ form{
     animation: apperBaseV 0.5s forwards;
     background-color:rgba(255, 255, 255, 0);
     border-radius: 20px;
+    cursor: pointer;
 }
 
 
@@ -1604,8 +1610,9 @@ form{
     }
     to{
         width: 50%;
-        border: 15px solid white;
+        border: 10px solid rgba(148, 148, 148, 0.123);
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
+        height: 100px;
     }
 }
 
@@ -1615,18 +1622,23 @@ form{
     }
     to{
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
-        border: 15px solid white;
+        border: 10px solid rgba(148, 148, 148, 0.123);
+        border-bottom: 10px solid rgba(32, 31, 31, 0.288);
         width: 50%;
+        height: 100px;
     }
 }
 
 @keyframes hideZau {
     from{
+        
+        height: 100px;
         width: 80%;
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgb(255, 255, 255);
         color: rgb(0, 0, 0);
     }
     to{
+        height: auto;
         background-color: rgb(32, 29, 29);
         width: 20%;
         color: white;
@@ -1640,12 +1652,24 @@ form{
     }
     to{
         color: black;
-        background-color: rgba(255, 255, 255, 0);
+        background-color: rgb(255, 255, 255);
         width: 80%;
     }
 }
 
 @media screen and (max-width: 768px) {
+
+    .rvrsRow{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .rvrsBlock{
+        flex-direction: column;
+        width: 70%;
+    }
 
     .footerDiv{
         flex-direction: column;
@@ -1713,12 +1737,16 @@ form{
     }
 
     .informationMainPage{
-        width: 90%;
+        width: 100%;
         padding: 2%;
     }
 
     .informationMainPage p{
-        font-size: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .informationAboutusPage p{
+        font-size: 1rem;
     }
 
     @keyframes downAnimation {
