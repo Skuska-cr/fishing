@@ -48,6 +48,10 @@ body{
     100% { transform: rotate(360deg); }
 }
 
+.navBarLogo{
+    cursor: pointer;
+}
+
 /* navbar */
 
 /* navbar positioning*/

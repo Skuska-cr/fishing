@@ -403,6 +403,10 @@ window.addEventListener("load", function() {
 
 });
 
+document.querySelector(".navBarLogo").addEventListener("click", () => {
+    window.location.href = "index.html";
+});
+
 document.querySelector(".javascriptVersions").innerHTML = "App version: 5.01(H1C2J1)"
 
 
