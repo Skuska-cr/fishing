@@ -53,7 +53,7 @@ document.addEventListener("scroll", function() {
     var scroll = document.documentElement.scrollTop;
     var visible = document.querySelector('.zau-base-visible') || document.querySelector('.zau-visible');
     var hidden = document.querySelector('.zau-base-hidden') || document.querySelector('.zau-hidden');
-    if (scroll > 100 && scrolled == 0) {
+    if (scroll > 300 && scrolled == 0) {
         scrolled = 1;
         visible.classList.remove('zau-base-visible');
         visible.classList.add('zau-visible');
@@ -61,7 +61,7 @@ document.addEventListener("scroll", function() {
         hidden.classList.add('zau-hidden');
 
         } 
-        else if(scrolled == 1 && scroll < 100) {
+        else if(scrolled == 1 && scroll < 300) {
 
         scrolled = 0;
         hidden.classList.add('zau-base-hidden');

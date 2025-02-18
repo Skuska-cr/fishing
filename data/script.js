@@ -407,6 +407,6 @@ document.querySelector(".navBarLogo").addEventListener("click", () => {
     window.location.href = "index.html";
 });
 
-document.querySelector(".javascriptVersions").innerHTML = "App version: 5.01(H1C2J1)"
+document.querySelector(".javascriptVersions").innerHTML = "App version: 5.01(H2C3J3)"
 
 

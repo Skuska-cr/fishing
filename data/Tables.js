@@ -4,11 +4,15 @@ let cont = document.querySelector(".fetchedTables");
 // Add this line to set the background color of all tables and their containing divs to white
 let style = document.createElement('style');
 style.innerHTML = `
-    .watch-me{
-        background-color: rgba(255, 255, 255, 0.4);
+    .fetchedTables .watch-me{
+        background-color: rgba(0, 0, 0, 0.301);
         margin: 10px;
         border-radius: 20px;
         padding: 10px;
+        color: white;
+    }
+    .fetchedTables .watch-me h3{
+        color: rgb(0, 210, 238);
     }
 `;
 document.head.appendChild(style);

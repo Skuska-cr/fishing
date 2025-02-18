@@ -876,7 +876,9 @@ transition: transform 0.3s ease !important;
 }
 
 .NewsPicture{
-    background-image: linear-gradient(rgba(1, 39, 44, 0.514), rgba(0, 0, 0, 0.459)),url('images/mainpicture.jpg');
+    background-image: linear-gradient(rgba(1, 45, 53, 0.418), rgba(0, 0, 0, 0.466)),url('images/mainpicture.jpg');
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -884,6 +886,17 @@ transition: transform 0.3s ease !important;
     width: 100%;
     flex-direction: column;
     align-items: center;
+}
+
+.zau-Picture{
+    background-image: linear-gradient(rgba(1, 45, 53, 0.418), rgba(0, 0, 0, 0.466)),url('images/mainpicture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+
+
+
 }
 
 .mainNewsMain{
@@ -917,6 +930,8 @@ transition: transform 0.3s ease !important;
     font-size: 2.5vh;
     cursor: pointer;
     animation: UnArrowHovered 0.5s forwards;
+    font-weight: bolder;
+    color: white;
     
 }
 
@@ -932,6 +947,7 @@ transition: transform 0.3s ease !important;
     100%{
         background-color: rgb(0, 0, 0);
         color: white;
+        
     }
 }
 
@@ -941,8 +957,8 @@ transition: transform 0.3s ease !important;
         color: rgb(0, 0, 0);
     }
     100%{
-        background-color: rgba(255, 255, 255, 0.363);
-        color: black;
+        background-color: rgba(255, 255, 255, 0.123);
+        color: white;
     }
 }
 
@@ -961,24 +977,24 @@ transition: transform 0.3s ease !important;
 .container::before {
     content: "";
     position: absolute;
-    top: -10px;  /* Shift down */
-    left: 10px; /* Shift right */
+    top: -10px;  
+    left: 10px; 
     min-width: 100%;
     height: 100%;
     border-radius: 20px;
-    border-bottom: 0px solid white;
+    border-bottom: 3px solid rgba(0, 210, 238, 0.425);
     border: 1px solid black;
     border-left: 0px solid white;
-    background-color: rgba(255, 255, 255, 0.185);
-    z-index: 1; /* Bottom-most */
+    background-color: rgba(255, 255, 255, 0.041);
+    z-index: 1; 
 
 }
 
-/* Green Layer (Middle layer, behind `.newsBlock`) */
+
 .container::after {
     content: "";
     position: absolute;
-    top: -5px;  /* Shift slightly */
+    top: -5px;  
     left: 5px;
     min-width: 100%;
     height: 100%;
@@ -986,14 +1002,15 @@ transition: transform 0.3s ease !important;
     border-radius: 20px;
     border-bottom: 0px solid white;
     border-left: 0px solid white;
-    background-color: rgba(255, 255, 255, 0.185);
-    z-index: 2; /* Middle layer */
+    background-color: rgba(0, 0, 0, 0.226);
+    z-index: 2; 
+    border-bottom: 3px solid rgba(0, 210, 238, 0.425);
 
 }
 
 /* Main Block (On Top) */
 .newsBlock {
-    border: 1px solid black;
+    border-bottom: 3px solid rgb(0, 210, 238);
     width: 100%;
     height: 300px;
     border-radius: 20px;
@@ -1003,11 +1020,16 @@ transition: transform 0.3s ease !important;
     padding-left: 2%;
     position: relative; /* Needed for z-index */
     z-index: 3; /* Ensure this stays on top */
-    background-color: rgba(255, 255, 255, 0.521);
+    background-color: rgba(0, 0, 0, 0.301);
+    color: white;
     animation: downAnimationBlock 1s forwards;
     margin-top: 0px;
     transform: translateY(250px);
 
+}
+
+.newsBlock h4{
+    color: rgb(0, 210, 238);
 }
 
 .newsBlock p{
@@ -1263,7 +1285,7 @@ form{
 
 .mainNewsImg{
     width: 100px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 500px;
     margin-right: 25px;
     cursor: pointer;
@@ -1277,20 +1299,20 @@ form{
 @keyframes ImageUP {
     from{
         transform: translateY(0%);
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0);
     }to{
-        background-color: rgba(0, 48, 59, 0.185);
+        background-color: rgba(0, 0, 0, 0.61);
         transform: translateY(-10%);
     }
 }
 
 @keyframes ImageDOWN {
     from{
-        background-color: rgba(0, 48, 59, 0.185);
+        background-color: rgba(0, 0, 0, 0.61);
         transform: translateY(-10%);
         }
         to{
-            background-color: white;
+            background-color: rgba(0, 0, 0, 0.171);
         transform: translateY(0%);
         }
 }
@@ -1347,9 +1369,9 @@ form{
 .newsLoader{
     width: 100%;
     height: 5px;
-    background-color:rgba(169, 169, 170, 0.788);
+    background-color:rgb(0, 210, 238);
     border-radius: 50px;
-    border-right: 10px solid rgb(0, 0, 0);
+    border-right: 10px solid rgb(255, 255, 255);
 }
 
 .MainPageNewsHeadder{
@@ -1377,7 +1399,7 @@ form{
 @keyframes appear {
     from{
         opacity: 100%;
-        transform: translateX(-150%);
+        transform: translateX(-10%);
     }
     to{
         opacity: 100%;
@@ -1515,7 +1537,6 @@ form{
 }
 
 .zrbnMainDiv{
-    margin-top: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -1544,7 +1565,7 @@ form{
 }
 
 .zau-visible h2, .zau-base h2{
-    color: black;
+    color: rgb(255, 255, 255);
     cursor: pointer;
     border-bottom: 1px solid rgb(0, 0, 0);
     border-radius: 20px;
@@ -1576,15 +1597,17 @@ form{
 
 .zau-visible .zau-headding{
     position: relative;
+    
 }
 
 .zau-headding button {
     width: 50px;
     height: 50px;
     font-size: 40px;
-    color: rgb(141, 0, 0);
-    box-shadow: 5px 5px 20px rgba(255, 0, 0, 0.26);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 10px 50px rgb(255, 0, 0);
     border-radius: 200px;
+    
 }
 
 .zau-logos{
@@ -1626,6 +1649,9 @@ form{
     animation: apperBaseH 0.5s forwards;
     border-radius: 20px;
     cursor: pointer;
+    margin: 40px;
+    background-color: rgba(5, 5, 5, 0.411);
+    border: 2px solid white;
 }
 
 .zau-base-hidden {
@@ -1636,14 +1662,21 @@ form{
     align-items: center;
     text-align: center;
     animation: apperBaseV 0.5s forwards;
-    background-color:rgba(255, 255, 255, 0);
     border-radius: 20px;
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.295);
+    border: 2px solid white;
+    margin: 40px;
+}
+
+.zau-base-visible h2, .zau-base-hidden h2{
+    color: white;
 }
 
 .clcSwap:hover {
     scale: 1.08;
     transition: transform 0.3s ease;
+    
 }
 .close-btn {
     position: absolute;
@@ -1661,10 +1694,11 @@ form{
 @keyframes apperBaseV {
     from{
         width: 20%;
+        border: 2px solid rgba(255, 255, 255, 0);
     }
     to{
-        width: 50%;
-        border: 1px solid rgba(148, 148, 148, 0.123);
+        width: 20%;
+        border: 2px solid white;
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
         height: 100px;
     }
@@ -1673,11 +1707,12 @@ form{
 @keyframes apperBaseH {
     from{
         width: 80%;
+        border: 2px solid rgba(255, 255, 255, 0);
     }
     to{
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
-        border: 1px solid rgba(148, 148, 148, 0.123);
-        width: 50%;
+        border: 2px solid white;
+        width: 20%;
         height: 100px;
     }
 }
@@ -1687,8 +1722,8 @@ form{
         
         height: 100px;
         width: 80%;
-        background-color: rgb(255, 255, 255);
-        color: rgb(0, 0, 0);
+        background-color: rgba(255, 255, 255, 0.226);
+        color: rgb(255, 255, 255);
     }
     to{
         height: auto;
@@ -1704,8 +1739,8 @@ form{
         width: 20%;
     }
     to{
-        color: black;
-        background-color: rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
+        background-color: rgba(0, 0, 0, 0.226);
         width: 80%;
     }
 }
