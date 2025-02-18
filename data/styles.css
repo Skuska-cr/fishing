@@ -1197,9 +1197,9 @@ input:focus, textarea:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
-/* 
 
-button {
+
+form button {
     width: calc(100% + 10px);
     max-height: 1%;
     background: gray;
@@ -1214,11 +1214,11 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-} */
+}
 
-/* button:hover {
+form button:hover {
     background: black;
-} */
+}
 
 
 form{
