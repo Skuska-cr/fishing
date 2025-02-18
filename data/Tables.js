@@ -86,7 +86,8 @@ function createTable(entry){
         }
         return null;
     }
-    headder.style.borderBottom = "1px solid black";
+    headder.style.borderBottom = "2px solid rgb(255, 255, 255)";
+
     headder.textContent = entry[0];
     div.appendChild(headder);
 
