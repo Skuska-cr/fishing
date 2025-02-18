@@ -1541,7 +1541,6 @@ form{
     flex-direction: row;
     justify-content: space-between;
     width: 70%;
-    min-height: 300px;
     border-radius: 20px;
 }
 
@@ -1554,7 +1553,7 @@ form{
     overflow: hidden;
     align-items: center;
     text-align: center;
-    box-shadow: 15px 5px 10px rgba(0, 0, 0, 0.377);
+    box-shadow: 15px 5px 10px rgba(255, 255, 255, 0.178);
 }
 .zau-hidden h2{
     color: white;
@@ -1605,7 +1604,7 @@ form{
     height: 50px;
     font-size: 40px;
     color: rgb(255, 255, 255);
-    box-shadow: 5px 10px 50px rgb(255, 0, 0);
+    border: 2px solid white;
     border-radius: 200px;
     
 }
@@ -1646,7 +1645,7 @@ form{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    animation: apperBaseH 0.5s forwards;
+    animation: apperBaseH 1s forwards;
     border-radius: 20px;
     cursor: pointer;
     margin: 40px;
@@ -1661,7 +1660,7 @@ form{
     flex-direction: column;
     align-items: center;
     text-align: center;
-    animation: apperBaseV 0.5s forwards;
+    animation: apperBaseV 1s forwards;
     border-radius: 20px;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.295);
@@ -1692,12 +1691,22 @@ form{
 }
 
 @keyframes apperBaseV {
-    from{
+    0%{
         width: 20%;
         border: 2px solid rgba(255, 255, 255, 0);
+        height: 1000px;
+
     }
-    to{
-        width: 20%;
+    50%{
+
+        height: 100px;
+
+    }
+
+ 
+
+    100%{
+        width: 40%;
         border: 2px solid white;
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
         height: 100px;
@@ -1707,12 +1716,17 @@ form{
 @keyframes apperBaseH {
     from{
         width: 80%;
+        height: 1000px;
         border: 2px solid rgba(255, 255, 255, 0);
+    }
+    50%{
+        border: 2px solid white;
+        height: 100px;
     }
     to{
         box-shadow: 0px -15px 15px rgba(0, 0, 0, 0.151);
         border: 2px solid white;
-        width: 20%;
+        width: 40%;
         height: 100px;
     }
 }

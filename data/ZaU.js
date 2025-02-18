@@ -8,9 +8,10 @@ buttons.forEach(button => {
             current.classList.add('zau-hidden');
         }
 
-
-        hidden.classList.add('zau-visible');
-        hidden.classList.remove('zau-hidden');
+        if (hidden) {
+            hidden.classList.add('zau-visible');
+            hidden.classList.remove('zau-hidden');
+        }
     });
 });
 
@@ -48,7 +49,6 @@ ulvk.addEventListener('click', function() {
 
 
 document.addEventListener("scroll", function() {
-    console.log(scrolled)
     
     var scroll = document.documentElement.scrollTop;
     var visible = document.querySelector('.zau-base-visible') || document.querySelector('.zau-visible');

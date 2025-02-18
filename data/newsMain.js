@@ -47,9 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(jsonUrl)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             maxLoad = Object.values(data).length;
-            console.log(maxLoad)
             for (let entry of Object.values(data)) {
                 document.querySelector(".mainNews").appendChild(createNewsWindow(entry));
             }
@@ -161,7 +159,6 @@ document.querySelector(".aboutUsButtonMainPage").addEventListener("click", () =>
 })
 
 function calculateLoader(){
-    console.log(maxLoad, Alrviewed)
     loader =  Alrviewed/maxLoad * 100;
     return loader;
 }
