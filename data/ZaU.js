@@ -3,8 +3,10 @@ buttons.forEach(button => {
     button.addEventListener('click', function() {
         var current = document.querySelector('.zau-visible');
         var hidden = document.querySelector('.zau-hidden');
-        current.classList.remove('zau-visible');
-        current.classList.add('zau-hidden');
+        if (current){
+            current.classList.remove('zau-visible');
+            current.classList.add('zau-hidden');
+        }
 
 
         hidden.classList.add('zau-visible');
@@ -25,11 +27,12 @@ zarb.addEventListener('click', function() {
         var clcSwapElement = document.querySelector('.clcSwap');
         var offset = clcSwapElement.offsetTop - 50; // Adjust the offset value as needed
         window.scrollTo({ top: offset, behavior: 'smooth' });
-        console.log("neswitch")
+        
     }
 });
 
 ulvk.addEventListener('click', function() {
+    
     if (scrolled == 0) {
         ulvk.classList.add('zau-base-visible');
         ulvk.classList.remove('zau-base-hidden');
@@ -38,7 +41,7 @@ ulvk.addEventListener('click', function() {
         var clcSwapElement = document.querySelector('.clcSwap');
         var offset = clcSwapElement.offsetTop - 50; // Adjust the offset value as needed
         window.scrollTo({ top: offset, behavior: 'smooth' });
-        console.log("neswitch")
+        
     }
 });
 
@@ -46,9 +49,9 @@ ulvk.addEventListener('click', function() {
 
 document.addEventListener("scroll", function() {
     console.log(scrolled)
+    
     var scroll = document.documentElement.scrollTop;
     var visible = document.querySelector('.zau-base-visible') || document.querySelector('.zau-visible');
-    console.log(visible)
     var hidden = document.querySelector('.zau-base-hidden') || document.querySelector('.zau-hidden');
     if (scroll > 100 && scrolled == 0) {
         scrolled = 1;
@@ -56,8 +59,10 @@ document.addEventListener("scroll", function() {
         visible.classList.add('zau-visible');
         hidden.classList.remove('zau-base-hidden');
         hidden.classList.add('zau-hidden');
+
         } 
         else if(scrolled == 1 && scroll < 100) {
+
         scrolled = 0;
         hidden.classList.add('zau-base-hidden');
         visible.classList.add('zau-base-visible');
@@ -66,6 +71,13 @@ document.addEventListener("scroll", function() {
         visible.classList.remove('zau-hidden');
         visible.classList.remove('zau-visible');
         }
-
+        
+       
     
+});
+var closeButtons = document.querySelectorAll('.close-btn');
+closeButtons.forEach(closeButton => {
+    closeButton.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });

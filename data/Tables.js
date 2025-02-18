@@ -1,6 +1,18 @@
 var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/AboutUsTables.json";
 let cont = document.querySelector(".fetchedTables");
 
+// Add this line to set the background color of all tables and their containing divs to white
+let style = document.createElement('style');
+style.innerHTML = `
+    .watch-me{
+        background-color: rgba(255, 255, 255, 0.4);
+        margin: 10px;
+        border-radius: 20px;
+        padding: 10px;
+    }
+`;
+document.head.appendChild(style);
+
 fetch(jsonUrl)
 .then(response => response.json())
 .then(data => {
@@ -95,5 +107,3 @@ function createTable(entry){
     div.classList.add("watch-me");
     return div;
 }
-
-
