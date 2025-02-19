@@ -80,7 +80,7 @@ var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/head
 fetch(jsonUrl)
 .then(response => response.json())
 .then(data => {
-    console.log(data);
+    console.log(data.z);
     Object.keys(data.z).forEach(year => {
         const pdfItem = createPdfItem(data.z[year],year);
         
