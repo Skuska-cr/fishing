@@ -632,6 +632,7 @@ th, td {
     .ms p{
 
         font-size: 16px;
+        line-height: 0.2;
 
     }
     .showList2{
@@ -1784,18 +1785,34 @@ p{
 
 .aboutUsText p{
     font-size: 1.5rem;
-    padding-left: 20%;
+    padding-left: 15%;
     line-height: 1;
 }
 
 .aboutUsText h2{
     font-size: 2.5rem;
-    padding-left: 20%;
+    padding-left: 15%;
 }
 
 .aboutUsText h3{
     font-size: 2rem;
-    padding-left: 20%;
+    padding-left: 15%;
 }
 
-
+@media screen and (max-width: 768px){
+    .aboutUsText p{
+        font-size: 1rem;
+        padding-left: 5%;
+        line-height: 1;
+    }
+    
+    .aboutUsText h2{
+        font-size: 1.5rem;
+        padding-left: 5%;
+    }
+    
+    .aboutUsText h3{
+        font-size: 1.2rem;
+        padding-left: 5%;
+    }
+}
