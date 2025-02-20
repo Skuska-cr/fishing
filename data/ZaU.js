@@ -1,7 +1,7 @@
 
 
 function createPDF(data, year) {
-    console.log(data)
+
     window.jsPDF = window.jspdf.jsPDF;
     const doc = new jsPDF();
     let y = 20; // Initial vertical position

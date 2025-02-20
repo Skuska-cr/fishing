@@ -15,7 +15,7 @@ function copy(element){
 
 var pages = {
     "O organizácií": ["MO SRZ Medzilaborce", "O nás/výbor", "Revíry MO SRZ Medzilaborce"],
-    "Aktivity a podujatia": ["Zarybnenie/úlovky", "Šírava Big 6 Challenge 2024", "Brigádnická činnosť"],
+    "Aktivity": ["Zarybnenie/úlovky", "Podujatia", "Brigádnická činnosť"],
     "Administratíva a legislatíva": ["Poplatky/PnR/Zápisné", "Legislatíva", "Prihlášky/žiadosti"],
     "Komunikácia": ["Novinky", "Fotogaléria", "Otázky a odpovede"]
 }
@@ -312,7 +312,7 @@ manus.forEach(m => {
         });
         if (!m.classList.contains("clicked")){
             if(m.innerHTML == "O organizácií") {document.querySelector(".a").appendChild(list); document.querySelector(".a").classList.remove("unClickedDiv"); document.querySelector(".a").classList.add("clickedDiv")};
-            if(m.innerHTML == "Aktivity a podujatia") {document.querySelector(".b").appendChild(list); document.querySelector(".b").classList.remove("unClickedDiv"); document.querySelector(".b").classList.add("clickedDiv")};
+            if(m.innerHTML == "Aktivity") {document.querySelector(".b").appendChild(list); document.querySelector(".b").classList.remove("unClickedDiv"); document.querySelector(".b").classList.add("clickedDiv")};
             if(m.innerHTML == "Administratíva a legislatíva") {document.querySelector(".c").appendChild(list);  document.querySelector(".c").classList.remove("unClickedDiv"); document.querySelector(".c").classList.add("clickedDiv")};
             if(m.innerHTML == "Komunikácia") {document.querySelector(".d").appendChild(list);document.querySelector(".d").classList.remove("unClickedDiv"); document.querySelector(".d").classList.add("clickedDiv")};
             m.classList.add("clicked");

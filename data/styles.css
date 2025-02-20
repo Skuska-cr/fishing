@@ -119,6 +119,7 @@ nav .choices table{
     display: table;
     border-top: 2px solid black;
     margin-bottom: 0px;
+    height: 60px;
     background-color: rgb(22, 21, 21);
 
 }
@@ -133,7 +134,7 @@ nav .choices td{
     text-align: center;
     display: table-cell;
     width: 25%;
-    
+    border-radius: 20px;
     font-size: 20px;
     color: white;
 }
@@ -162,6 +163,8 @@ nav tr td:hover{
     transform-style: preserve-3d; /* Ensures 3D rotation effect */
 
 }
+
+
 
 @keyframes navBarbackRotation {
     from{
@@ -856,7 +859,7 @@ footer{
 
 
 .move:hover{
-transform: scale(1.10) translateY(75px) !important;
+transform: scale(1.06) translateY(75px) !important;
 transition: transform 0.3s ease !important;
 
 }
@@ -1472,7 +1475,7 @@ form{
 }
 
 .trtt{
-    transform: translateY(75px);
+    transform: translateY(75px) translateX(50px);
     transition: transform 0.3s ease !important;
 } 
 .tablesDiv div{
@@ -1625,7 +1628,28 @@ form{
     }
   }
 
+.customPageMainDiv{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px;
+    flex-direction: column;
+    align-items: center;
+    font-size: larger;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+}
+
+.customPageMainDiv h2{
+    color: rgb(0, 131, 148);
+}
+
 @media screen and (max-width: 768px) {
+
+    .customPageMainDiv{
+        width: 90%;
+    }
 
     .rvrsRow{
         flex-direction: column;
