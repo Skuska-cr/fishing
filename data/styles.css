@@ -1646,6 +1646,46 @@ form{
     color: rgb(0, 131, 148);
 }
 
+.pdjListMainDiv {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    padding: 50px;
+}
+
+.pdjList{
+    width: 20%;
+    padding-left: 25px;
+    border-right: 2px solid black;
+}
+
+.pdjList h2{
+    color: rgb(0, 131, 148);
+}
+
+.pdjList h3{
+    border-right: 5px solid rgb(0, 131, 148);
+    width: 70%;
+    transition: border-right 0.5s ease;
+}
+
+.pdjList h3:hover, .pdjList h3 .displayed{
+    color: rgb(0, 131, 148);
+    font-weight: bold;
+    cursor: pointer;
+    border-right: 25px solid rgb(0, 131, 148);
+    transition: border-right 0.5s ease;
+}
+
+
+
+.pdjElement{
+    width: 80%;
+    padding: 25px;
+    margin: 50px;
+    border-radius: 20px;
+}
+
 @media screen and (max-width: 768px) {
 
     .customPageMainDiv{
