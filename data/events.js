@@ -26,6 +26,7 @@ function createPageContent(event) {
 
                 img.addEventListener('click', () => {
                     img.classList.toggle("bigerImage");
+
                 });
                 images.appendChild(img);
             }

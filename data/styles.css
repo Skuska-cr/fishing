@@ -1722,26 +1722,28 @@ form{
     position: relative;
 
 }
-
-.pdjInnerImages img{
+.pdjInnerImages img {
     width: 250px;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301); 
-    transition: transform 0.3s ease;
- 
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+    transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out;
+    cursor: pointer;
 }
 
-.bigerImage {
-    transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out; /* Smooth animation */
-    position: fixed; /* Keep it fixed on the screen */
-    top: 50%; /* Move to center */
-    left: 50%; /* Move to center */
-    transform: translate(-50%, -50%); /* Perfect centering */
-    width: 60vw !important; /* Set width to 60% of viewport width */
-    height: auto; /* Maintain aspect ratio */
-    max-height: 90vh; /* Ensure it doesn't overflow the viewport height */
-    z-index: 9999; /* Ensure it stays on top */
+/* Fullscreen animation */
+.pdjInnerImages img.bigerImage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60vw; /* Expands smoothly */
+    max-height: 90vh;
+    height: auto;
+    z-index: 9999;
+    transform: translate(-50%, -50%) scale(1); /* Moves to center and scales */
+    opacity: 1;
+    transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out;
 }
+
 
 
 .pdjInnerImages img:not(.bigerImage):hover{
