@@ -1720,7 +1720,7 @@ form{
     background-color: white;
     transition: left 0.7s ease-in-out;
     position: relative;
-
+    margin: 5px;
 }
 .pdjInnerImages img {
     width: 250px;
