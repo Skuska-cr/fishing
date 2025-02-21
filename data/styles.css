@@ -1691,6 +1691,9 @@ form{
     overflow: hidden;
     display: flex;
     justify-content: center;
+    position: relative;
+    background-color: white;
+
 }
 
 .pdjInnerElement{
@@ -1704,6 +1707,28 @@ form{
     background-color: white;
     transition: left 0.7s ease-in-out;
     position: relative;
+    background-color: white;
+    z-index: 2;
+
+}
+
+
+.pdjLoadContainer {
+    position: absolute;
+    top: 150px;
+    width: 100%; /* Same width as .pdjInnerElement */
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    z-index: 1; /* Behind .pdjInnerElement */
+}
+
+.pdjLoad{
+    border: 10px solid #ebebeb;
+    border-top: 10px solid #238ed6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .pdjInnerElement p{

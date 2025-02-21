@@ -52,6 +52,10 @@ function generatePage(event){
     List.appendChild(listValue);
     listValue.addEventListener('click', () => {
         createPageContent(event);
+        var pdjLoadElement = document.querySelector(".pdjLoad");
+        pdjLoadElement.style.animation = "none";
+        pdjLoadElement.offsetHeight; // trigger reflow
+        pdjLoadElement.style.animation = "spin 1.5s linear forwards";
     });
     
 }
