@@ -20,8 +20,13 @@ function createPageContent(event) {
                 if( i*3+j > imagesLenght-1){
                     break;
                 }
-                var img = document.createElement("img");
+                let img = document.createElement("img");
                 img.src = event.images[i*3+j];
+
+
+                img.addEventListener('click', () => {
+                    img.classList.toggle("bigerImage");
+                });
                 images.appendChild(img);
             }
             pdjInnerElemet.appendChild(images);
