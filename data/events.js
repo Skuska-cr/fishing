@@ -7,18 +7,28 @@ function createPageContent(event) {
         pdjInnerElemet.innerHTML = "";
         var head = document.createElement("h2");
         var text = document.createElement("p");
-        var images = document.createElement("div");
-        images.classList.add("pdjInnerImages");
-        event.images.forEach(image => {
-            var img = document.createElement("img");
-            img.src = image;
-            images.appendChild(img);
-        });
         head.innerHTML = event.name;
         text.innerHTML = event.text;
         pdjInnerElemet.appendChild(head);
         pdjInnerElemet.appendChild(text);
-        pdjInnerElemet.appendChild(images);
+        var imagesLenght = event.images.length;
+        for(var i = 0; i < imagesLenght/3; i++){
+            var images = document.createElement("div");
+            images.classList.add("pdjInnerImages");
+
+            for(var j = 0; j < 3; j++){
+                if( i*3+j > imagesLenght-1){
+                    break;
+                }
+                var img = document.createElement("img");
+                img.src = event.images[i*3+j];
+                images.appendChild(img);
+            }
+            pdjInnerElemet.appendChild(images);
+
+
+        }
+
         pdjInnerElemet.style.left = "0";
 
     }, 1000);
