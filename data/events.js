@@ -7,10 +7,13 @@ function createPageContent(event) {
         pdjInnerElemet.innerHTML = "";
         var head = document.createElement("h2");
         var text = document.createElement("p");
+        var ptohotext = document.createElement("h2");
         head.innerHTML = event.name;
         text.innerHTML = event.text;
+        ptohotext.innerHTML = "Fotogaléria";
         pdjInnerElemet.appendChild(head);
         pdjInnerElemet.appendChild(text);
+        pdjInnerElemet.appendChild(ptohotext);
         var imagesLenght = event.images.length;
         for(var i = 0; i < imagesLenght/3; i++){
             var images = document.createElement("div");

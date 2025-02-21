@@ -1657,6 +1657,10 @@ form{
     width: 20%;
     padding-left: 25px;
     border-right: 2px solid black;
+    top: 10%;
+    min-height: 100%;
+
+
 }
 
 .pdjList h2{
@@ -1680,9 +1684,9 @@ form{
 
 
 .pdjElement{
+    display: flex;
     width: 80%;
     padding: 25px;
-    margin: 50px;
     border-radius: 20px;
     overflow: hidden;
     display: flex;
@@ -1724,6 +1728,7 @@ form{
 }
 .pdjInnerImages img {
     width: 250px;
+    max-width: 33%;
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
     transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out;

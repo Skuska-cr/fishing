@@ -276,7 +276,7 @@ var placeholder = document.querySelector(".Listplaceholder");
 manus.forEach(m => {
     var list = document.createElement("div")
     
-    m.addEventListener("click", () => {
+    m.addEventListener("mouseenter", () => {
         manus.forEach(n => {
             if(n != m)n.classList.remove("clicked")
                 
@@ -320,13 +320,36 @@ manus.forEach(m => {
         }
         else{
             m.classList.remove("clicked");
-            
-            
         }
 
     });
 
+
 });
+
+document.querySelector(".main").addEventListener("mouseenter", () => {
+    document.querySelectorAll(".clickedDiv").forEach(el => {
+        el.classList.remove("clickedDiv");
+        el.classList.add("unClickedDiv");
+        el.innerHTML = ""
+        document.querySelectorAll(".tdRoll").forEach(m => {
+            m.classList.remove("clicked");
+        });
+    });
+});
+
+document.querySelector(".headding").addEventListener("mouseenter", () => {
+    document.querySelectorAll(".clickedDiv").forEach(el => {
+        el.classList.remove("clickedDiv");
+        el.classList.add("unClickedDiv");
+        el.innerHTML = ""
+        document.querySelectorAll(".tdRoll").forEach(m => {
+            m.classList.remove("clicked");
+        });
+    });
+});
+
+
 
 document.querySelector(".main").addEventListener("click", () => {
     document.querySelectorAll(".clickedDiv").forEach(el => {
