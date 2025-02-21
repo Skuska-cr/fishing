@@ -1684,6 +1684,35 @@ form{
     padding: 25px;
     margin: 50px;
     border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.pdjInnerElemet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+    background-color: white;
+    animation: moveFromLeft 1s ease-in-out forwards;
+
+
+}
+
+@keyframes moveFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @media screen and (max-width: 768px) {
