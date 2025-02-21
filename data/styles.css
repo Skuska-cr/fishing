@@ -1698,24 +1698,40 @@ form{
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
     background-color: white;
-    animation: moveFromLeft 1s ease-in-out forwards;
-
+    transition: left 0.7s ease-in-out;
+    position: relative;
 }
 
 .pdjInnerElement p{
     font-size: 20px;
 }
 
-@keyframes moveFromLeft {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
+.pdjInnerImages{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+    background-color: white;
+    transition: left 0.7s ease-in-out;
+    position: relative;
+
 }
+
+.pdjInnerImages img{
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);  
+}
+
+.pdjInnerImages img:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
 
 @media screen and (max-width: 768px) {
 
