@@ -1760,7 +1760,7 @@ form{
     max-width: 33%;
 }
 
-/* Fullscreen animation */
+
 .pdjInnerImages img.bigerImage {
     animation: biggimge 0.5s forwards;
     z-index: 9999;
