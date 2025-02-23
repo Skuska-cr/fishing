@@ -1819,15 +1819,18 @@ form{
     width: 50%;
     padding: 0px 50px;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px #238ed670;
+    box-shadow: 5px 5px 5px #66666670;
     cursor: pointer;
     margin: 10px 0px;
     transition: max-height 0.5s ease-in-out, box-shadow 0.5s ease-in-out, width 0.5s ease-in-out;
+}
 
+.ppz-block h2{
+    color: #1f78b3;
 }
 
 .ppz-block:hover {
-    box-shadow: 5px 5px 5px #238ed6d7;
+    box-shadow: 5px 5px 5px #000000d7;
     width: 51%;
 }
 
