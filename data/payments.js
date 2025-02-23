@@ -26,6 +26,7 @@ function createElement(value){
         div.appendChild(text);
     }
     else{
+
         div.appendChild(createTable(value));
     }
     div.addEventListener("click", () => {
@@ -33,6 +34,7 @@ function createElement(value){
     });
     container.appendChild(div);
 }
+
 
 function createTable(entry){
     let div = document.createElement("div");
@@ -43,12 +45,16 @@ function createTable(entry){
     let tbody = document.createElement("tbody");
 
     Object.entries(entry.text).forEach(([key, value]) => {
+        
         let row = document.createElement("tr");
         for (v of value){
 
             let cell2 = document.createElement("td");
             cell2.textContent = v;
             row.appendChild(cell2);
+            if (value.length == 1){
+                cell2.style.fontWeight = "bold";
+            }
         }
 
         tbody.appendChild(row);

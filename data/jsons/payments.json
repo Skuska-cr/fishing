@@ -7,13 +7,59 @@
     "2":{
         "name": "Ceny PnR na rok 2025",
         "type": "table",
+
         "text": {
-            "1": ["TLAČIVÁ","CENA"],
-            "3": ["DETI ( do dovŕšenia 6 roku )", "3 €"],
-            "4": ["DETI (6 – 14 rokov)", "3 €"],
-            "5": ["MLÁDEŽ (15 – 17 rokov)", "20€"],
-            "6": ["DOSPELÍ","35€"]
-        }
+                "1": ["Členské známky"],
+                "3": ["DETI ( do dovŕšenia 6 roku )", "3 €"],
+                "4": ["DETI (6 – 14 rokov)", "3 €"],
+                "5": ["MLÁDEŽ (15 – 17 rokov)", "20€"],
+                "6": ["DOSPELÍ", "35€"],
+        
+                "10": ["Zápisné"],
+                "11": ["DETI ( do dovŕšenia 6 roku )", "0 €"],
+                "12": ["DETI (6 – 14 rokov)", "3 €"],
+                "13": ["MLÁDEŽ (15 – 17 rokov)", "5 €"],
+                "14": ["DOSPELÍ", "50€"],
+        
+                "20": ["Povolenia na rybolov"],
+                "21": ["Mieste pstruhové (PnR) - DETI (6 – 14 rokov)", "15 €"],
+                "22": ["Mieste kaprové (PnR) - DETI (6 – 14 rokov)", "10 €"],
+                "23": ["Zväzové kaprové (PnR) - DETI (6 – 14 rokov)", "15 €"],
+                "24": ["Mieste pstruhové (PnR) - MLÁDEŽ (15 – 17 rokov)", "27 €"],
+                "25": ["Mieste kaprové (PnR) - MLÁDEŽ (15 – 17 rokov)", "40 €"],
+                "26": ["Zväzové kaprové (PnR) - MLÁDEŽ (15 – 17 rokov)", "75 €"],
+                "27": ["Mieste pstruhové (PnR) - DOSPELÍ", "27 €"],
+                "28": ["Mieste kaprové (PnR) - DOSPELÍ", "40 €"],
+                "29": ["Zväzové kaprové (PnR) - DOSPELÍ", "75 €"],
+        
+                "30": ["Tlačivá"],
+                "31": ["Tlačivá", "1 €"],
+                "32": ["Tlačivá pre nových členov", "3 €"],
+        
+                "40": ["Sumárne poplatky pre členov"],
+                "41": ["Deti miestne kaprové (PnR) (6 – 14 rokov)", "14 €"],
+                "42": ["Deti miestne pstruhové (PnR) (6 – 14 rokov)", "15 €"],
+                "43": ["Mládež miestne kaprové (PnR) (15 – 17 rokov)", "61 €"],
+                "44": ["Mládež miestne pstruhové (PnR) (15 – 17 rokov)", "27 €"],
+                "45": ["Dospelí miestne kaprové (PnR)", "76 €"],
+                "46": ["Dospelí miestne pstruhové (PnR)", "27 €"],
+                "47": ["Deti zväzové (PnR) (6 – 14 rokov)", "29 €"],
+                "48": ["Mládež zväzové (PnR) (15 – 17 rokov)", "136 €"],
+                "49": ["Dospelí zväzové (PnR)", "151 €"],
+        
+                "50": ["Sumárne poplatky pre nových členov"],
+                "51": ["Deti (PnR) - (6 – 14 rokov)", "31 €"],
+                "52": ["Deti miestne pstruhové (PnR) (6 – 14 rokov)", "15 €"],
+                "53": ["Mládež (PnR) - (15 – 17 rokov)", "143 €"],
+                "54": ["Mládež miestne pstruhové (PnR) (15 – 17 rokov)", "27 €"],
+                "55": ["Dospelí (PnR)", "203 €"],
+                "56": ["Dospelí miestne pstruhové (PnR)", "27 €"],
+        
+                "60": ["Iné poplatky"],
+                "61": ["Odovzdaný záznam o úlovkoch, ale nevyplnený za rok 2024", "20 €"],
+                "62": ["Neodpracovanie brigády za rok 2024", "30 €"]
+            }
+        
     }
 
 }
