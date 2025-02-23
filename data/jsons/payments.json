@@ -60,6 +60,15 @@
                 "62": ["Neodpracovanie brigády za rok 2024", "30 €"]
             }
         
+    },
+    "3":{
+        "name": "Rybarský listok",
+        "type": "text",
+        "text": "Oddnes je možnosť zakúpiť si priamo v domčeku MO SRZ Medzilaborce RYBARSKY LÍSTOK (týždenný 1.50.- , mesačný 3.- , ročný 7.- , trojročný 17.-).Osoby oslobodené od poplatku sú - žiaci a študenti stredných a vysokých škôl študijných odborov s výučbou rybárstva, zamestnanci štátnej správy s ústredným riadením rybárstva, ktorí majú v pracovnej zmluve aktívne vykonávanie rybárstva, odborní zamestnanci na úseku rybárstva, ak majú vykonávanie rybárstva vo svojej pracovnej zmluve, zamestnanci Slovenského rybárskeho zväzu, rybárski hospodári a ich zástupcovia a osoby ustanovené ako rybárska stráž po predložení potvrdenia o výkone pracovnej náplne alebo povolania, cudzinci, ktorí prídu do Slovenskej republiky na pozvanie alebo so súhlasom prezidenta Slovenskej republiky, Národnej rady Slovenskej republiky a vlády Slovenskej republiky, osoby do 15 rokov."
+    },
+    "4":{
+        "name": "Platba",
+        "type": "text",
+        "text": "Platbu za PnR je potrebné posielať LEN na číslo účtu: SK42 0200 0000 0047 0429 0059 účet je vedený vo VUB banke. Kde je potrebné do poznámky/správy uviesť za koho je úhrada robená a za aký druh povolenia je úhrada!!! Pokiaľ nemá niekto prístup k internetbankingu bude mu vydaný poštový poukaz."
     }
-
 }

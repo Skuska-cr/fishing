@@ -53,7 +53,7 @@ function createTable(entry){
             cell2.textContent = v;
             row.appendChild(cell2);
             if (value.length == 1){
-                cell2.style.fontWeight = "bold";
+                cell2.style.fontWeight = "bolder";
             }
         }
 
