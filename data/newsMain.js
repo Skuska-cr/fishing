@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     // Fetch and populate news
-    const jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/news.json";
+    const jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/jsons/news.json";
     fetch(jsonUrl)
         .then(response => response.json())
         .then(data => {

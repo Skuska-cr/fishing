@@ -74,7 +74,7 @@ function createPdfItem(yearData,year) {
     return div;
 }
 
-var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/pdfs.json";
+var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/jsons/pdfs.json";
 
 
 fetch(jsonUrl)

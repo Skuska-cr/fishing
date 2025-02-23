@@ -61,7 +61,7 @@ function generatePage(event){
 }
 
 
-var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/events.json";
+var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/jsons/events.json";
 
 
 fetch(jsonUrl)

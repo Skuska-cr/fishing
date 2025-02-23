@@ -1,4 +1,4 @@
-var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/AboutUsTables.json";
+var jsonUrl = "https://raw.githubusercontent.com/Richard190104/fishing/refs/heads/main/data/jsons/AboutUsTables.json";
 let cont = document.querySelector(".fetchedTables");
 
 // Add this line to set the background color of all tables and their containing divs to white
