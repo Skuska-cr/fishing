@@ -1799,6 +1799,29 @@ form{
     flex-direction: row;
 }
 
+.ppz-manContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+
+}
+
+.ppz-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 50%;
+    padding: 0px 50px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.288);
+    cursor: pointer;
+
+}
+
 @media screen and (max-width: 768px) {
 
     .customPageMainDiv{
