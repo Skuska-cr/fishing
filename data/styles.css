@@ -1753,34 +1753,51 @@ form{
 }
 .pdjInnerImages img {
     width: 250px;
-    max-width: 33%;
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
     transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out;
     cursor: pointer;
+    max-width: 33%;
 }
 
 /* Fullscreen animation */
 .pdjInnerImages img.bigerImage {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 60vw; /* Expands smoothly */
-    max-height: 90vh;
-    height: auto;
+    animation: biggimge 0.5s forwards;
     z-index: 9999;
-    transform: translate(-50%, -50%) scale(1); /* Moves to center and scales */
-    opacity: 1;
+    position: relative;
     transition: transform 0.5s ease-out, width 0.5s ease-out, opacity 0.5s ease-out;
 }
 
+@keyframes biggimge {
+    from {
+        opacity: 0;
+        position: fixed;
+        width: 50vw;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        position: fixed;
+        width: 50vw;
+        left: 50%;
+        top: 50%;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
 
 
 .pdjInnerImages img:not(.bigerImage):hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: transform 0.5s ease;
 }
 
+.zau-container{
+    width: 70%;  
+    display: flex; 
+    flex-direction: row;
+}
 
 @media screen and (max-width: 768px) {
 
@@ -1788,11 +1805,52 @@ form{
         width: 90%;
     }
 
+    .pdjInnerImages  {
+       flex-direction: column;
+    }
+
+    .pdjInnerImages img {
+        max-width: 80%;
+        margin-bottom: 15px;
+     }
+
     .rvrsRow{
         flex-direction: column;
         width: 100%;
         justify-content: center;
         align-items: center;
+    }
+
+    .pdjListMainDiv{
+        flex-direction: column;
+        width: 100%;
+        padding: 0px;
+
+    }
+    .pdjList{
+        width: 100%;
+        border-right: 0px solid black;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding:0px ;
+    }
+
+    .pdjInnerElement{
+        width: 100%;
+        padding: 0px;
+    }
+
+    .pdjElement{
+        width: 90%;
+
+    }
+
+    .zau-container{
+        width: 90%;  
+        display: flex; 
+        flex-direction: column;
     }
 
     .rvrsBlock{
