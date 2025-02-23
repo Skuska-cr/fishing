@@ -16,11 +16,48 @@ fetch(jsonUrl)
 function createElement(value){
     var div = document.createElement("div");
     div.classList.add("ppz-block");
-    var text = document.createElement("p");
     var head = document.createElement("h2");
-    head.innerHTML = value.name;
-    text.innerHTML = value.text;
     div.appendChild(head);
-    div.appendChild(text);
+
+    head.innerHTML = value.name;
+    if(value.type == "text"){
+        var text = document.createElement("p");
+        text.innerHTML = value.text;
+        div.appendChild(text);
+    }
+    else{
+        div.appendChild(createTable(value));
+    }
+    div.addEventListener("click", () => {
+        div.classList.toggle("expand");
+    });
     container.appendChild(div);
+}
+
+function createTable(entry){
+    let div = document.createElement("div");
+   
+
+
+    let table = document.createElement("table");
+    let tbody = document.createElement("tbody");
+
+    Object.entries(entry.text).forEach(([key, value]) => {
+        let row = document.createElement("tr");
+        for (v of value){
+
+            let cell2 = document.createElement("td");
+            cell2.textContent = v;
+            row.appendChild(cell2);
+        }
+
+        tbody.appendChild(row);
+    });
+
+    table.appendChild(tbody);
+    table.classList.add("hoverTable");
+    div.appendChild(table);
+    div.style.width = "80%";
+    console.log(div)
+    return div;
 }
