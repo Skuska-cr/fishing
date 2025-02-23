@@ -66,7 +66,7 @@ function createTable(entry){
     table.appendChild(tbody);
     table.classList.add("hoverTable");
     div.appendChild(table);
-    div.style.width = "80%";
+    div.style.width = "100%";
     console.log(div)
     return div;
 }
