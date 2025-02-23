@@ -1835,10 +1835,10 @@ form{
 }
 @keyframes borderBottomAnimation {
     from {
-        border-bottom: 0px solid black;
+        box-shadow: 5px 5px 5px #238ed670;
     }
     to {
-        border-bottom: 5px solid black
+        box-shadow: 5px 5px 5px #238ed6d7;
     }
 }
 
