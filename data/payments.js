@@ -5,7 +5,7 @@ const container = document.querySelector(".ppz-manContainer");
 fetch(jsonUrl)
 .then(response => response.json())
 .then(data => {
-    
+    console.log(data)
     Object.keys(data).forEach(value => {
         createElement(value);
         
