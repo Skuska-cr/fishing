@@ -1897,6 +1897,11 @@ form{
         padding: 25px 0px;
     }
 
+    .ppz-block:hover {
+        box-shadow: 5px 5px 5px #000000d7;
+        width: calc(100% - 20px);
+    }
+
     .leg-block{
         flex-direction: column;
         width: 90%;
