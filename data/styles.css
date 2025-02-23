@@ -1805,7 +1805,6 @@ form{
     align-items: center;
     flex-direction: column;
     width: 100%;
-    padding: 20px;
 
 }
 
@@ -1820,9 +1819,27 @@ form{
     width: 50%;
     padding: 0px 50px;
     border-radius: 20px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.288);
+    box-shadow: 5px 5px 5px #238ed670;
     cursor: pointer;
+    margin-bottom: 10px;
     transition: max-height 0.5s ease-in-out;
+
+}
+
+.ppz-block:hover {
+    animation: borderBottomAnimation 0.5s forwards;
+}
+
+.ppz-block p{
+    font-size: 20px;
+}
+@keyframes borderBottomAnimation {
+    from {
+        border-bottom: 0px solid black;
+    }
+    to {
+        border-bottom: 5px solid black
+    }
 }
 
 .ppz-block.expand {
@@ -1841,6 +1858,14 @@ form{
     .pdjInnerImages  {
        flex-direction: column;
     }
+
+    .ppz-block{
+        max-width: 100%;
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+
+ 
 
     .pdjInnerImages img {
         max-width: 80%;

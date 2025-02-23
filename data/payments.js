@@ -52,9 +52,12 @@ function createTable(entry){
             let cell2 = document.createElement("td");
             cell2.textContent = v;
             row.appendChild(cell2);
+
             if (value.length == 1){
                 cell2.style.fontWeight = "bolder";
+
             }
+
         }
 
         tbody.appendChild(row);
